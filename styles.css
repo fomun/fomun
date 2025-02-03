@@ -113,7 +113,7 @@ header nav ul li a:hover {
   height: 100%;
   object-fit: contain; /* Maintain aspect ratio */
   animation: falconFly 5s ease-in-out infinite;
-  /* Apply filter to ensure the image appears in gold tone (tweak as needed) */
+  /* Apply filter to color the logo gold (tweak if needed) */
   filter: invert(1) sepia(1) saturate(500%) hue-rotate(10deg) brightness(1.2);
 }
 @keyframes falconFly {
@@ -122,29 +122,41 @@ header nav ul li a:hover {
   100% { transform: translate(0, 0) rotate(0deg); opacity: 0.8; }
 }
 
-/* Committees Section */
-.committees {
+/* Committees Section with Hover Effect */
+.committees-section {
   padding: 60px 20px;
-  background: #fff; /* Light background for contrast */
-  color: #001f3f;  /* Dark blue text */
+  background: #fff;
+  color: #001f3f;
   text-align: center;
+  cursor: pointer;
 }
-.committees h2 {
+.committees-section h2 {
   font-size: 2.5em;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   font-family: 'Montserrat', sans-serif;
 }
-.committee-list {
+.committees-section p.instruction {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+.committees-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
+  gap: 20px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+.committees-section:hover .committees-list {
+  opacity: 1;
+  pointer-events: auto;
 }
 .committee {
   background: #f0f0f0;
   color: #333;
   padding: 20px;
-  width: 250px;
+  width: 220px;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
@@ -153,18 +165,19 @@ header nav ul li a:hover {
   transform: translateY(-5px);
 }
 .committee h3 {
-  font-size: 1.5em;
+  font-size: 1.4em;
   margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
 }
 .committee p {
-  font-size: 1em;
+  font-size: 0.95em;
 }
 
 /* Footer */
 footer {
   background: #003366;
   padding: 20px 0;
-  text-align: center;  /* Center the text */
+  text-align: center;
   width: 100%;
   font-size: 0.9em;
   position: relative;

@@ -193,3 +193,43 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
+
+
+/* Dropdown Menu Styles */
+header nav ul li.dropdown {
+  position: relative;
+}
+
+header nav ul li .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%; /* Position the submenu below the parent */
+  left: 0;
+  background: #003366; /* Deep blue background matching the header */
+  min-width: 160px;
+  z-index: 1001;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+header nav ul li .dropdown-content li {
+  margin: 0;
+}
+
+header nav ul li .dropdown-content li a {
+  display: block;
+  padding: 10px 15px;
+  color: #FFD700; /* Gold text */
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+header nav ul li .dropdown-content li a:hover {
+  background: #001f3f; /* Darker blue on hover */
+  color: #fff;
+}
+
+/* Show the dropdown on hover */
+header nav ul li.dropdown:hover .dropdown-content {
+  display: block;
+}

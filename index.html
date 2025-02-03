@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Forest Hill Collegiate Institute MUN</title>
-  <!-- Link to external CSS (we’ll create this next) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Forest Hill Collegiate Institute MUN - Falcons</title>
+  <!-- Link to our CSS file -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Fixed Navigation -->
   <header>
-    <h1>Forest Hill Collegiate Institute Model UN</h1>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -20,17 +20,29 @@
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
-      <h2>Welcome to FHCIMUN!</h2>
-      <p>Join us for an engaging Model UN experience at Forest Hill Collegiate Institute in Toronto.</p>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">We Are The Falcons!</h1>
+      <p class="hero-tagline">Welcome to Forest Hill Collegiate Institute Model UN Conference</p>
       <a class="btn" href="registration.html">Register Now!</a>
-    </section>
-  </main>
+    </div>
+    <!-- Animated Falcon SVG -->
+    <div class="hero-animation">
+      <svg class="falcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <!-- A simple falcon-like shape in gold -->
+        <path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 48c110.5 0 200 89.5 200 200 0 35.3-10.2 68.3-27.7 96H83.7C66.2 324.3 56 291.3 56 256c0-110.5 89.5-200 200-200z" fill="#FFD700"/>
+      </svg>
+    </div>
+  </section>
 
+  <!-- Footer -->
   <footer>
     <p>Follow us on Instagram: <a href="https://instagram.com/fhcimun" target="_blank">@fhcimun</a></p>
     <p>&copy; 2025 Forest Hill Collegiate Institute Model UN</p>
   </footer>
+
+  <!-- Optional JavaScript file for future interactivity -->
+  <script src="script.js"></script>
 </body>
 </html>

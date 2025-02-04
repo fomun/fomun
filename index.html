@@ -97,5 +97,63 @@
     falconContainer.style.top = (e.clientY - falconHeight / 2) + 'px';
   });
 </script>
+
+<script>
+  // Variables to store the last mouse coordinates
+  let lastMouseX = window.innerWidth / 2;
+  let lastMouseY = window.innerHeight / 2;
+  let idleTimer = null;
+  let idleAnimation = null;
+  
+  // Get the falcon container element
+  const falconContainer = document.querySelector('.hero-animation');
+  
+  // Function to start the idle animation (orbiting)
+  function startIdleAnimation() {
+    let angle = 0;
+    const radius = 50; // Orbit radius in pixels
+    // Use setInterval to update position at roughly 60fps
+    idleAnimation = setInterval(() => {
+      angle += 0.05; // Adjust speed as desired
+      // Calculate new position (centered around the last mouse position)
+      const newX = lastMouseX + radius * Math.cos(angle);
+      const newY = lastMouseY + radius * Math.sin(angle);
+      // Update falcon container's position (centering the image)
+      falconContainer.style.left = (newX - falconContainer.offsetWidth / 2) + 'px';
+      falconContainer.style.top = (newY - falconContainer.offsetHeight / 2) + 'px';
+    }, 16);
+  }
+  
+  // Function to stop the idle orbit animation
+  function stopIdleAnimation() {
+    if (idleAnimation) {
+      clearInterval(idleAnimation);
+      idleAnimation = null;
+    }
+  }
+  
+  // Listen for mouse movement
+  document.addEventListener('mousemove', function(e) {
+    // Update the last known mouse position
+    lastMouseX = e.clientX;
+    lastMouseY = e.clientY;
+    
+    // Stop idle orbit if it's running
+    stopIdleAnimation();
+    
+    // Immediately move the falcon to the cursor position (centering it)
+    falconContainer.style.left = (e.clientX - falconContainer.offsetWidth / 2) + 'px';
+    falconContainer.style.top = (e.clientY - falconContainer.offsetHeight / 2) + 'px';
+    
+    // Reset the idle timer
+    if (idleTimer) {
+      clearTimeout(idleTimer);
+    }
+    idleTimer = setTimeout(() => {
+      startIdleAnimation();
+    }, 1500); // 1.5 seconds of inactivity
+  });
+</script>
+
 </body>
 </html>

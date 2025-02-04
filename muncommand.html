@@ -6,17 +6,13 @@
   <title>MUN Command Center - Forest Hill Collegiate MUN</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Embedded CSS (for testing; later move to styles.css) -->
+  <!-- Embedded CSS (for development; later move to styles.css) -->
   <style>
     /* ================= Global Reset and Base Styles ================= */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Lato', sans-serif;
-      background: #001f3f; /* Dark blue */
+      background: #001f3f;
       color: #fff;
       overflow-x: hidden;
       cursor: auto;
@@ -29,14 +25,12 @@
       left: 0;
       width: 100%;
       height: 60px;
-      background: #003366; /* Deep blue */
+      background: #003366;
       z-index: 1000;
       display: flex;
       align-items: center;
     }
-    header nav {
-      width: 100%;
-    }
+    header nav { width: 100%; }
     header nav ul {
       display: flex;
       align-items: center;
@@ -49,7 +43,7 @@
       position: relative;
     }
     header nav ul li a {
-      color: #FFD700; /* Gold */
+      color: #FFD700;
       text-decoration: none;
       font-weight: bold;
       font-size: 1.1em;
@@ -118,6 +112,7 @@
       color: #001f3f;
       padding: 20px;
       border-radius: 8px;
+      min-height: 300px;
     }
     .tab-content.active {
       display: block;
@@ -127,9 +122,7 @@
     .timer-panel {
       text-align: center;
     }
-    .timer-panel h2 {
-      margin-bottom: 20px;
-    }
+    .timer-panel h2 { margin-bottom: 20px; }
     .timer-display {
       font-size: 2.5em;
       margin-bottom: 20px;
@@ -149,9 +142,7 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-    .timer-buttons button:hover {
-      transform: scale(1.05);
-    }
+    .timer-buttons button:hover { transform: scale(1.05); }
     
     /* ================= Attendance Panel ================= */
     .attendance-panel h2 {
@@ -167,18 +158,13 @@
       border-radius: 5px;
       overflow: hidden;
     }
-    .attendance-panel th,
-    .attendance-panel td {
+    .attendance-panel th, .attendance-panel td {
       padding: 10px;
       border-bottom: 1px solid #ccc;
       text-align: left;
     }
-    .attendance-panel th {
-      background: #FFD700;
-    }
-    .attendance-panel td input[type="checkbox"] {
-      transform: scale(1.2);
-    }
+    .attendance-panel th { background: #FFD700; }
+    .attendance-panel td input[type="checkbox"] { transform: scale(1.2); }
     .attendance-panel button {
       margin-top: 15px;
       padding: 10px 20px;
@@ -189,15 +175,10 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-    .attendance-panel button:hover {
-      transform: scale(1.05);
-    }
+    .attendance-panel button:hover { transform: scale(1.05); }
     
     /* ================= Motions Panel ================= */
-    .motions-panel h2 {
-      text-align: center;
-      margin-bottom: 15px;
-    }
+    .motions-panel h2 { text-align: center; margin-bottom: 15px; }
     .motions-panel form input,
     .motions-panel form textarea,
     .motions-panel form select {
@@ -217,9 +198,7 @@
       transition: transform 0.3s ease;
       margin-bottom: 20px;
     }
-    .motions-panel form button:hover {
-      transform: scale(1.05);
-    }
+    .motions-panel form button:hover { transform: scale(1.05); }
     .motion-list {
       list-style: none;
       padding: 0;
@@ -241,15 +220,10 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-    .motion-list button:hover {
-      transform: scale(1.05);
-    }
+    .motion-list button:hover { transform: scale(1.05); }
     
     /* ================= Delegate Management Panel ================= */
-    .delegate-panel h2 {
-      text-align: center;
-      margin-bottom: 15px;
-    }
+    .delegate-panel h2 { text-align: center; margin-bottom: 15px; }
     .delegate-panel form {
       display: flex;
       flex-wrap: wrap;
@@ -272,9 +246,7 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-    .delegate-panel form button:hover {
-      transform: scale(1.05);
-    }
+    .delegate-panel form button:hover { transform: scale(1.05); }
     .delegate-list table {
       width: 100%;
       border-collapse: collapse;
@@ -284,15 +256,12 @@
       overflow: hidden;
       margin-top: 10px;
     }
-    .delegate-list th,
-    .delegate-list td {
+    .delegate-list th, .delegate-list td {
       padding: 10px;
       text-align: left;
       border-bottom: 1px solid #ccc;
     }
-    .delegate-list th {
-      background: #FFD700;
-    }
+    .delegate-list th { background: #FFD700; }
     .delegate-list td button {
       background: #FF4136;
       border: none;
@@ -302,15 +271,10 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-    .delegate-list td button:hover {
-      transform: scale(1.05);
-    }
+    .delegate-list td button:hover { transform: scale(1.05); }
     
     /* ================= Speaker Queue Panel ================= */
-    .speaker-panel h2 {
-      text-align: center;
-      margin-bottom: 15px;
-    }
+    .speaker-panel h2 { text-align: center; margin-bottom: 15px; }
     .speaker-panel form {
       display: flex;
       justify-content: center;
@@ -332,9 +296,7 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-    .speaker-panel form button:hover {
-      transform: scale(1.05);
-    }
+    .speaker-panel form button:hover { transform: scale(1.05); }
     .speaker-list {
       width: 100%;
       margin-top: 10px;
@@ -347,15 +309,12 @@
       border-radius: 5px;
       overflow: hidden;
     }
-    .speaker-list th,
-    .speaker-list td {
+    .speaker-list th, .speaker-list td {
       padding: 10px;
       border-bottom: 1px solid #ccc;
       text-align: left;
     }
-    .speaker-list th {
-      background: #FFD700;
-    }
+    .speaker-list th { background: #FFD700; }
     .speaker-list td button {
       background: #FF4136;
       border: none;
@@ -365,15 +324,71 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-    .speaker-list td button:hover {
-      transform: scale(1.05);
+    .speaker-list td button:hover { transform: scale(1.05); }
+    
+    /* ================= Moderated Caucus Panel ================= */
+    .caucus-panel {
+      background: #003366;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      text-align: center;
     }
+    .caucus-panel h2 { margin-bottom: 20px; }
+    .caucus-panel form input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 200px;
+      margin-right: 10px;
+    }
+    .caucus-panel form button {
+      padding: 10px 20px;
+      background: #FFD700;
+      border: none;
+      color: #001f3f;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .caucus-panel form button:hover { transform: scale(1.05); }
+    .caucus-timer-display {
+      font-size: 2em;
+      margin: 20px 0;
+    }
+    .caucus-buttons button {
+      margin: 5px;
+      padding: 10px 20px;
+      background: #FFD700;
+      border: none;
+      color: #001f3f;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .caucus-buttons button:hover { transform: scale(1.05); }
+    .caucus-delegate-list {
+      margin-top: 20px;
+      text-align: left;
+    }
+    .caucus-delegate-list table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      color: #001f3f;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+    .caucus-delegate-list th, .caucus-delegate-list td {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+      text-align: left;
+    }
+    .caucus-delegate-list th { background: #FFD700; }
     
     /* ================= Command Log Panel ================= */
-    .command-log-panel h2 {
-      text-align: center;
-      margin-bottom: 15px;
-    }
+    .command-log-panel h2 { text-align: center; margin-bottom: 15px; }
     .command-log {
       background: #f0f0f0;
       color: #001f3f;
@@ -394,16 +409,12 @@
       bottom: 0;
       width: 100%;
     }
-    footer p {
-      margin: 5px 0;
-    }
+    footer p { margin: 5px 0; }
     footer a {
       color: #FFD700;
       text-decoration: none;
     }
-    footer a:hover {
-      text-decoration: underline;
-    }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -437,10 +448,11 @@
       <li data-tab="motionsTab">Motions</li>
       <li data-tab="delegatesTab">Delegates</li>
       <li data-tab="speakerQueueTab">Speaker Queue</li>
+      <li data-tab="caucusTab">Moderated Caucus</li>
       <li data-tab="commandLogTab">Command Log</li>
     </ul>
     
-    <!-- Timer Tab -->
+    <!-- Timer Tab Content -->
     <div class="tab-content active" id="timerTab">
       <div class="timer-panel">
         <h2>Session Timer</h2>
@@ -457,7 +469,7 @@
       </div>
     </div>
     
-    <!-- Attendance Tab -->
+    <!-- Attendance Tab Content -->
     <div class="tab-content" id="attendanceTab">
       <div class="attendance-panel">
         <h2>Attendance</h2>
@@ -470,14 +482,14 @@
             </tr>
           </thead>
           <tbody id="attendanceTable">
-            <!-- Attendance rows will be added here -->
+            <!-- Attendance rows will be added here dynamically -->
           </tbody>
         </table>
         <button onclick="recordAttendance()">Record Attendance</button>
       </div>
     </div>
     
-    <!-- Motions Tab -->
+    <!-- Motions Tab Content -->
     <div class="tab-content" id="motionsTab">
       <div class="motions-panel">
         <h2>Create New Motion</h2>
@@ -486,8 +498,8 @@
           <textarea id="motionDescription" placeholder="Motion Description" rows="3" required></textarea>
           <label for="motionType">Motion Type:</label>
           <select id="motionType" required>
-            <option value="mod">Modification (MOD)</option>
-            <option value="unmod">Unmodification (UNMOD)</option>
+            <option value="mc">Moderated Caucus (MC)</option>
+            <option value="unmc">Unmoderated Caucus (UNMC)</option>
             <option value="other">Other</option>
           </select>
           <button type="submit">Call Motion</button>
@@ -498,7 +510,7 @@
       </div>
     </div>
     
-    <!-- Delegates Tab -->
+    <!-- Delegates Tab Content -->
     <div class="tab-content" id="delegatesTab">
       <div class="delegate-panel">
         <h2>Delegate Management</h2>
@@ -524,7 +536,7 @@
       </div>
     </div>
     
-    <!-- Speaker Queue Tab -->
+    <!-- Speaker Queue Tab Content -->
     <div class="tab-content" id="speakerQueueTab">
       <div class="speaker-panel">
         <h2>Speaker Queue</h2>
@@ -549,7 +561,40 @@
       </div>
     </div>
     
-    <!-- Command Log Tab -->
+    <!-- Moderated Caucus Tab Content -->
+    <div class="tab-content" id="caucusTab">
+      <div class="caucus-panel">
+        <h2>Moderated Caucus</h2>
+        <form id="caucusForm">
+          <input type="text" id="caucusTopic" placeholder="Caucus Topic" required>
+          <input type="number" id="caucusDuration" placeholder="Duration (minutes)" required min="1">
+          <button type="submit">Start Caucus</button>
+        </form>
+        <div class="caucus-timer-display" id="caucusTimerDisplay">00:00</div>
+        <div class="caucus-buttons">
+          <button onclick="startCaucusSpeaking()">Start Speaking</button>
+          <button onclick="stopCaucusSpeaking()">Stop Speaking</button>
+          <button onclick="resetCaucusTimer()">Reset Caucus Timer</button>
+        </div>
+        <div class="caucus-delegate-list" id="caucusDelegateList">
+          <h3>Caucus Delegates</h3>
+          <table id="caucusTable">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Time Spoken</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Caucus delegate rows will be added here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Command Log Tab Content -->
     <div class="tab-content" id="commandLogTab">
       <div class="command-log-panel">
         <h2>Command Log</h2>
@@ -580,9 +625,19 @@
       });
     });
     
-    /**************** Timer Functionality (Countdown) ****************/
+    /**************** Command Log Functionality ****************/
+    function logCommand(message) {
+      const logDiv = document.getElementById('commandLog');
+      const timeStamp = new Date().toLocaleTimeString();
+      const entry = document.createElement('p');
+      entry.textContent = `[${timeStamp}] ${message}`;
+      logDiv.appendChild(entry);
+      logDiv.scrollTop = logDiv.scrollHeight;
+    }
+    
+    /**************** Timer Functionality (Session Countdown) ****************/
     let timerInterval = null;
-    let sessionDuration = 45 * 60; // Default 45 minutes in seconds
+    let sessionDuration = 45 * 60; // Default: 45 minutes in seconds
     let remainingSeconds = sessionDuration;
     function updateTimerDisplay() {
       const minutes = Math.floor(remainingSeconds / 60);
@@ -676,7 +731,6 @@
       motionHeader.textContent = title;
       const motionDesc = document.createElement('p');
       motionDesc.textContent = description;
-      // Create separate vote buttons for "For" and "Against"
       const voteForButton = document.createElement('button');
       voteForButton.textContent = "For (0)";
       let voteForCount = 0;
@@ -750,10 +804,8 @@
       const timeCell = document.createElement('td');
       const actionCell = document.createElement('td');
       nameCell.textContent = name;
-      // Initialize individual speaking time (in seconds)
       let speakingTime = 0;
       timeCell.textContent = formatTime(speakingTime);
-      // Create start/stop buttons for individual timer
       const startButton = document.createElement('button');
       startButton.textContent = "Start";
       const stopButton = document.createElement('button');
@@ -789,18 +841,61 @@
       return String(mins).padStart(2, '0') + ':' + String(secs).padStart(2, '0');
     }
     
-    /**************** Command Log Functionality ****************/
-    function logCommand(message) {
-      const logDiv = document.getElementById('commandLog');
-      const timeStamp = new Date().toLocaleTimeString();
-      const entry = document.createElement('p');
-      entry.textContent = `[${timeStamp}] ${message}`;
-      logDiv.appendChild(entry);
-      logDiv.scrollTop = logDiv.scrollHeight;
+    /**************** Moderated Caucus Functionality ****************/
+    let caucusTimerInterval = null;
+    let caucusDuration = 0; // in seconds
+    let caucusRemaining = 0;
+    function updateCaucusDisplay() {
+      const display = document.getElementById('caucusTimerDisplay');
+      const minutes = Math.floor(caucusRemaining / 60);
+      const seconds = caucusRemaining % 60;
+      display.textContent = String(minutes).padStart(2, '0') + ':' + String(seconds).padStart(2, '0');
     }
+    function startCaucusTimer() {
+      if (caucusTimerInterval !== null) return;
+      logCommand("Caucus Timer Started");
+      caucusTimerInterval = setInterval(() => {
+        if (caucusRemaining > 0) {
+          caucusRemaining--;
+          updateCaucusDisplay();
+        } else {
+          clearInterval(caucusTimerInterval);
+          caucusTimerInterval = null;
+          logCommand("Caucus Timer Ended");
+          alert("Caucus time is up!");
+        }
+      }, 1000);
+    }
+    function stopCaucusSpeaking() {
+      if (caucusTimerInterval !== null) {
+        clearInterval(caucusTimerInterval);
+        caucusTimerInterval = null;
+        logCommand("Caucus Timer Paused");
+      }
+    }
+    function resetCaucusTimer() {
+      stopCaucusSpeaking();
+      caucusRemaining = caucusDuration;
+      updateCaucusDisplay();
+      logCommand("Caucus Timer Reset");
+    }
+    const caucusForm = document.getElementById('caucusForm');
+    caucusForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const topic = document.getElementById('caucusTopic').value.trim();
+      const durationInput = document.getElementById('caucusDuration').value.trim();
+      if (topic === "" || durationInput === "") return;
+      caucusDuration = parseInt(durationInput, 10) * 60;
+      caucusRemaining = caucusDuration;
+      updateCaucusDisplay();
+      logCommand(`Caucus Started: "${topic}" for ${durationInput} minutes`);
+    });
+    
+    /**************** Command Log Functionality (Already Defined Above) ****************/
+    // logCommand(message) already defined above
     
     /**************** Tab Navigation Initialization ****************/
-    // (Already handled above by the tab navigation event listeners)
+    // (Handled in the Tab Navigation block above)
   </script>
 </body>
 </html>

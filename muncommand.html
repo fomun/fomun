@@ -9,33 +9,28 @@
   <!-- Embedded CSS (for testing; later move to styles.css) -->
   <style>
     /* ================= Global Reset and Base Styles ================= */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Lato', sans-serif;
       background: #001f3f; /* Dark blue */
       color: #fff;
       overflow-x: hidden;
+      cursor: auto;
     }
     
-    /* ================= Header and Navigation ================= */
+    /* ================= Fixed Header and Navigation ================= */
     header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 60px;
-      background: #003366; /* Deep blue */
+      background: #003366;
       z-index: 1000;
       display: flex;
       align-items: center;
     }
-    header nav {
-      width: 100%;
-    }
+    header nav { width: 100%; }
     header nav ul {
       display: flex;
       align-items: center;
@@ -48,7 +43,7 @@
       position: relative;
     }
     header nav ul li a {
-      color: #FFD700; /* Gold */
+      color: #FFD700;
       text-decoration: none;
       font-weight: bold;
       font-size: 1.1em;
@@ -58,7 +53,7 @@
     header nav ul li a.active {
       color: #fff;
     }
-    /* Dropdown Menu for Committees */
+    /* Dropdown for Committees */
     header nav ul li.dropdown:hover .dropdown-content {
       display: block;
     }
@@ -85,32 +80,56 @@
       color: #fff;
     }
     
-    /* ================= Main Container ================= */
-    main {
-      margin-top: 70px; /* Account for fixed header */
-      padding: 20px;
+    /* ================= Tabbed Interface Styles ================= */
+    .tab-container {
       max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 80px auto 50px;
+      padding: 0 20px;
     }
-    h1, h2, h3 {
-      font-family: 'Montserrat', sans-serif;
+    .tabs {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      background: #003366;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .tabs li {
+      padding: 15px 25px;
+      cursor: pointer;
+      color: #FFD700;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .tabs li.active {
+      background: #FFD700;
+      color: #001f3f;
+    }
+    .tab-content {
+      display: none;
+      background: #f0f0f0;
+      color: #001f3f;
+      padding: 20px;
+      border-radius: 8px;
+    }
+    .tab-content.active {
+      display: block;
     }
     
     /* ================= Timer Panel ================= */
     .timer-panel {
-      background: #003366;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 30px;
       text-align: center;
     }
-    .timer-panel h2 {
-      margin-bottom: 20px;
-    }
+    .timer-panel h2 { margin-bottom: 20px; }
     .timer-display {
       font-size: 2.5em;
       margin-bottom: 20px;
+    }
+    .timer-panel input[type="number"] {
+      width: 80px;
+      padding: 5px;
+      margin-right: 10px;
     }
     .timer-buttons button {
       margin: 5px;
@@ -126,17 +145,82 @@
       transform: scale(1.05);
     }
     
+    /* ================= Attendance Panel ================= */
+    .attendance-panel h2 { text-align: center; margin-bottom: 15px; }
+    .attendance-panel table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      color: #001f3f;
+      margin-top: 10px;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .attendance-panel th, .attendance-panel td {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+      text-align: left;
+    }
+    .attendance-panel th { background: #FFD700; }
+    .attendance-panel td input[type="checkbox"] { transform: scale(1.2); }
+    .attendance-panel button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #FFD700;
+      border: none;
+      color: #001f3f;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .attendance-panel button:hover { transform: scale(1.05); }
+    
+    /* ================= Motions Panel ================= */
+    .motions-panel h2 { text-align: center; margin-bottom: 15px; }
+    .motions-panel form input,
+    .motions-panel form textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      width: 100%;
+    }
+    .motions-panel form button {
+      padding: 10px 20px;
+      background: #FFD700;
+      border: none;
+      color: #001f3f;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      margin-bottom: 20px;
+    }
+    .motions-panel form button:hover { transform: scale(1.05); }
+    .motion-list {
+      list-style: none;
+      padding: 0;
+    }
+    .motion-list li {
+      background: #fff;
+      color: #001f3f;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+    }
+    .motion-list button {
+      margin-right: 10px;
+      padding: 5px 10px;
+      background: #FFD700;
+      border: none;
+      color: #001f3f;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .motion-list button:hover { transform: scale(1.05); }
+    
     /* ================= Delegate Management Panel ================= */
-    .delegate-panel {
-      background: #003366;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 30px;
-    }
-    .delegate-panel h2 {
-      text-align: center;
-      margin-bottom: 15px;
-    }
+    .delegate-panel h2 { text-align: center; margin-bottom: 15px; }
     .delegate-panel form {
       display: flex;
       flex-wrap: wrap;
@@ -144,10 +228,9 @@
       justify-content: center;
       margin-bottom: 20px;
     }
-    .delegate-panel form input,
-    .delegate-panel form select {
+    .delegate-panel form input {
       padding: 10px;
-      border: none;
+      border: 1px solid #ccc;
       border-radius: 5px;
       width: 200px;
     }
@@ -160,13 +243,7 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-    .delegate-panel form button:hover {
-      transform: scale(1.05);
-    }
-    .delegate-list {
-      width: 100%;
-      margin-top: 10px;
-    }
+    .delegate-panel form button:hover { transform: scale(1.05); }
     .delegate-list table {
       width: 100%;
       border-collapse: collapse;
@@ -174,16 +251,14 @@
       color: #001f3f;
       border-radius: 5px;
       overflow: hidden;
+      margin-top: 10px;
     }
     .delegate-list th, .delegate-list td {
       padding: 10px;
       text-align: left;
       border-bottom: 1px solid #ccc;
     }
-    .delegate-list th {
-      background: #FFD700;
-      color: #001f3f;
-    }
+    .delegate-list th { background: #FFD700; }
     .delegate-list td button {
       background: #FF4136;
       border: none;
@@ -193,21 +268,10 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-    .delegate-list td button:hover {
-      transform: scale(1.05);
-    }
+    .delegate-list td button:hover { transform: scale(1.05); }
     
     /* ================= Command Log Panel ================= */
-    .command-log-panel {
-      background: #003366;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 30px;
-    }
-    .command-log-panel h2 {
-      text-align: center;
-      margin-bottom: 15px;
-    }
+    .command-log-panel h2 { text-align: center; margin-bottom: 15px; }
     .command-log {
       background: #f0f0f0;
       color: #001f3f;
@@ -228,16 +292,12 @@
       bottom: 0;
       width: 100%;
     }
-    footer p {
-      margin: 5px 0;
-    }
+    footer p { margin: 5px 0; }
     footer a {
       color: #FFD700;
       text-decoration: none;
     }
-    footer a:hover {
-      text-decoration: underline;
-    }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -263,58 +323,103 @@
     </nav>
   </header>
   
-  <!-- Main Dashboard -->
-  <main>
-    <h1 style="text-align:center; margin-bottom:20px;">MUN Command Center</h1>
+  <!-- Main Dashboard with Tabs -->
+  <main class="tab-container">
+    <ul class="tabs">
+      <li class="active" data-tab="timerTab">Timer</li>
+      <li data-tab="attendanceTab">Attendance</li>
+      <li data-tab="motionsTab">Motions</li>
+      <li data-tab="delegatesTab">Delegates</li>
+      <li data-tab="commandLogTab">Command Log</li>
+    </ul>
     
-    <!-- Timer Panel (Limited Time Countdown) -->
-    <section class="timer-panel">
-      <h2>Session Timer</h2>
-      <div class="timer-display" id="timerDisplay">45:00</div>
-      <div class="timer-buttons">
-        <button onclick="startTimer()">Start Session</button>
-        <button onclick="stopTimer()">Pause Session</button>
-        <button onclick="resetTimer()">Reset Session</button>
+    <!-- Timer Tab Content -->
+    <div class="tab-content active" id="timerTab">
+      <div class="timer-panel">
+        <h2>Session Timer</h2>
+        <div>
+          <label for="sessionTime">Set Session (minutes): </label>
+          <input type="number" id="sessionTime" value="45" min="1">
+        </div>
+        <div class="timer-display" id="timerDisplay">45:00</div>
+        <div class="timer-buttons">
+          <button onclick="startTimer()">Start Session</button>
+          <button onclick="stopTimer()">Pause Session</button>
+          <button onclick="resetTimer()">Reset Session</button>
+        </div>
       </div>
-    </section>
+    </div>
     
-    <!-- Delegate Management Panel -->
-    <section class="delegate-panel">
-      <h2>Delegate Management</h2>
-      <form id="delegateForm">
-        <input type="text" id="delegateName" placeholder="Delegate Name" required>
-        <input type="text" id="delegateCountry" placeholder="Country" required>
-        <button type="submit">Add Delegate</button>
-      </form>
-      <div class="delegate-list">
-        <table id="delegateTable">
+    <!-- Attendance Tab Content -->
+    <div class="tab-content" id="attendanceTab">
+      <div class="attendance-panel">
+        <h2>Attendance</h2>
+        <p>Mark delegates as present:</p>
+        <table>
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Country</th>
-              <th>Action</th>
+              <th>Delegate</th>
+              <th>Present</th>
             </tr>
           </thead>
-          <tbody>
-            <!-- Delegate rows will be appended here -->
+          <tbody id="attendanceTable">
+            <!-- Attendance rows will be added here -->
           </tbody>
         </table>
+        <button onclick="recordAttendance()">Record Attendance</button>
       </div>
-    </section>
+    </div>
     
-    <!-- Command Panel -->
-    <section class="command-log-panel">
-      <h2>Command Log</h2>
-      <div class="command-log" id="commandLog">
-        <!-- Logged commands will appear here -->
+    <!-- Motions Tab Content -->
+    <div class="tab-content" id="motionsTab">
+      <div class="motions-panel">
+        <h2>Create New Motion</h2>
+        <form id="motionForm">
+          <input type="text" id="motionTitle" placeholder="Motion Title" required>
+          <textarea id="motionDescription" placeholder="Motion Description" rows="3" required></textarea>
+          <button type="submit">Call Motion</button>
+        </form>
+        <ul class="motion-list" id="motionList">
+          <!-- Motion items will appear here -->
+        </ul>
       </div>
-      <div class="command-buttons" style="text-align:center; margin-top:20px;">
-        <button onclick="logCommand('Call for Speakers')">Call for Speakers</button>
-        <button onclick="logCommand('Roll Call')">Roll Call</button>
-        <button onclick="logCommand('Suspend Debate')">Suspend Debate</button>
-        <button onclick="logCommand('Adjourn Committee')">Adjourn Committee</button>
+    </div>
+    
+    <!-- Delegates Tab Content -->
+    <div class="tab-content" id="delegatesTab">
+      <div class="delegate-panel">
+        <h2>Delegate Management</h2>
+        <form id="delegateForm">
+          <input type="text" id="delegateName" placeholder="Delegate Name" required>
+          <input type="text" id="delegateCountry" placeholder="Country" required>
+          <button type="submit">Add Delegate</button>
+        </form>
+        <div class="delegate-list">
+          <table id="delegateTable">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Country</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Delegate rows will be appended here -->
+            </tbody>
+          </table>
+        </div>
       </div>
-    </section>
+    </div>
+    
+    <!-- Command Log Tab Content -->
+    <div class="tab-content" id="commandLogTab">
+      <div class="command-log-panel">
+        <h2>Command Log</h2>
+        <div class="command-log" id="commandLog">
+          <!-- Logged commands will appear here -->
+        </div>
+      </div>
+    </div>
   </main>
   
   <!-- Footer -->
@@ -323,31 +428,37 @@
     <p>&copy; 2025 Forest Hill Collegiate Institute Model UN</p>
   </footer>
   
-  <!-- Consolidated JavaScript for Advanced MUN Command Center -->
+  <!-- Consolidated JavaScript for Tab Navigation and MUN Command Functionality -->
   <script>
-    /**************** Command Log Functionality ****************/
-    function logCommand(message) {
-      const logDiv = document.getElementById('commandLog');
-      const timeStamp = new Date().toLocaleTimeString();
-      const entry = document.createElement('p');
-      entry.textContent = `[${timeStamp}] ${message}`;
-      logDiv.appendChild(entry);
-      logDiv.scrollTop = logDiv.scrollHeight;
-    }
+    /**************** Tab Navigation ****************/
+    const tabs = document.querySelectorAll('.tabs li');
+    const tabContents = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        tabs.forEach(t => t.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active'));
+        this.classList.add('active');
+        document.getElementById(this.dataset.tab).classList.add('active');
+      });
+    });
     
     /**************** Timer Functionality (Countdown) ****************/
     let timerInterval = null;
-    let sessionDuration = 2700; // 45 minutes in seconds
+    let sessionDuration = 45 * 60; // Default 45 minutes in seconds
     let remainingSeconds = sessionDuration;
-    
     function updateTimerDisplay() {
       const minutes = Math.floor(remainingSeconds / 60);
       const seconds = remainingSeconds % 60;
       document.getElementById('timerDisplay').textContent =
         String(minutes).padStart(2, '0') + ':' + String(seconds).padStart(2, '0');
     }
-    
     function startTimer() {
+      const sessionInput = document.getElementById('sessionTime');
+      sessionDuration = parseInt(sessionInput.value, 10) * 60;
+      // If timer hasn't started, set remainingSeconds to the new duration
+      if (remainingSeconds === 0 || remainingSeconds === sessionDuration) {
+        remainingSeconds = sessionDuration;
+      }
       if (timerInterval !== null) return;
       logCommand("Session Started");
       timerInterval = setInterval(() => {
@@ -362,7 +473,6 @@
         }
       }, 1000);
     }
-    
     function stopTimer() {
       if (timerInterval !== null) {
         clearInterval(timerInterval);
@@ -370,20 +480,17 @@
         logCommand("Session Paused");
       }
     }
-    
     function resetTimer() {
       stopTimer();
       remainingSeconds = sessionDuration;
       updateTimerDisplay();
       logCommand("Session Reset");
     }
-    
-    updateTimerDisplay(); // Initialize the timer display
+    updateTimerDisplay();
     
     /**************** Delegate Management Functionality ****************/
     const delegateForm = document.getElementById('delegateForm');
     const delegateTableBody = document.querySelector('#delegateTable tbody');
-    
     delegateForm.addEventListener('submit', function(e) {
       e.preventDefault();
       const name = document.getElementById('delegateName').value.trim();
@@ -393,16 +500,13 @@
       document.getElementById('delegateName').value = "";
       document.getElementById('delegateCountry').value = "";
     });
-    
     function addDelegate(name, country) {
       const row = document.createElement('tr');
       const nameCell = document.createElement('td');
       const countryCell = document.createElement('td');
       const actionCell = document.createElement('td');
-      
       nameCell.textContent = name;
       countryCell.textContent = country;
-      
       const delButton = document.createElement('button');
       delButton.textContent = "Delete";
       delButton.onclick = function() {
@@ -410,17 +514,96 @@
         logCommand(`Removed Delegate: ${name} (${country})`);
       };
       actionCell.appendChild(delButton);
-      
       row.appendChild(nameCell);
       row.appendChild(countryCell);
       row.appendChild(actionCell);
       delegateTableBody.appendChild(row);
-      
       logCommand(`Added Delegate: ${name} (${country})`);
     }
     
-    /**************** Additional Command Functions (Optional) ****************/
-    // You can extend this section to include further interactive functionality.
+    /**************** Attendance Functionality ****************/
+    function recordAttendance() {
+      const rows = document.querySelectorAll('#attendanceTable tr');
+      let presentDelegates = [];
+      rows.forEach(row => {
+        const checkbox = row.querySelector('input[type="checkbox"]');
+        const delegateName = row.querySelector('td').textContent;
+        if (checkbox && checkbox.checked) {
+          presentDelegates.push(delegateName);
+        }
+      });
+      logCommand("Attendance Recorded: " + presentDelegates.join(", "));
+    }
+    function populateAttendanceTable() {
+      const attendanceTable = document.getElementById('attendanceTable');
+      attendanceTable.innerHTML = "";
+      const delegateRows = document.querySelectorAll('#delegateTable tbody tr');
+      delegateRows.forEach(row => {
+        const name = row.children[0].textContent;
+        const newRow = document.createElement('tr');
+        const nameCell = document.createElement('td');
+        const checkCell = document.createElement('td');
+        nameCell.textContent = name;
+        const checkbox = document.createElement('input');
+        checkbox.type = "checkbox";
+        checkCell.appendChild(checkbox);
+        newRow.appendChild(nameCell);
+        newRow.appendChild(checkCell);
+        attendanceTable.appendChild(newRow);
+      });
+    }
+    document.querySelector('[data-tab="attendanceTab"]').addEventListener('click', populateAttendanceTable);
+    
+    /**************** Motions Functionality ****************/
+    const motionForm = document.getElementById('motionForm');
+    const motionList = document.getElementById('motionList');
+    motionForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const title = document.getElementById('motionTitle').value.trim();
+      const description = document.getElementById('motionDescription').value.trim();
+      if (title === "" || description === "") return;
+      addMotion(title, description);
+      motionForm.reset();
+    });
+    function addMotion(title, description) {
+      const motionItem = document.createElement('li');
+      const motionHeader = document.createElement('h3');
+      motionHeader.textContent = title;
+      const motionDesc = document.createElement('p');
+      motionDesc.textContent = description;
+      const voteForButton = document.createElement('button');
+      voteForButton.textContent = "For (0)";
+      let voteForCount = 0;
+      voteForButton.onclick = function() {
+        voteForCount++;
+        voteForButton.textContent = "For (" + voteForCount + ")";
+        logCommand(`Motion '${title}' - Vote For: ${voteForCount}`);
+      };
+      const voteAgainstButton = document.createElement('button');
+      voteAgainstButton.textContent = "Against (0)";
+      let voteAgainstCount = 0;
+      voteAgainstButton.onclick = function() {
+        voteAgainstCount++;
+        voteAgainstButton.textContent = "Against (" + voteAgainstCount + ")";
+        logCommand(`Motion '${title}' - Vote Against: ${voteAgainstCount}`);
+      };
+      motionItem.appendChild(motionHeader);
+      motionItem.appendChild(motionDesc);
+      motionItem.appendChild(voteForButton);
+      motionItem.appendChild(voteAgainstButton);
+      motionList.appendChild(motionItem);
+      logCommand(`Motion Called: ${title}`);
+    }
+    
+    /**************** Command Log Functionality ****************/
+    function logCommand(message) {
+      const logDiv = document.getElementById('commandLog');
+      const timeStamp = new Date().toLocaleTimeString();
+      const entry = document.createElement('p');
+      entry.textContent = `[${timeStamp}] ${message}`;
+      logDiv.appendChild(entry);
+      logDiv.scrollTop = logDiv.scrollHeight;
+    }
   </script>
 </body>
 </html>

@@ -13,6 +13,15 @@ body {
   overflow-x: hidden;
 }
 
+body {
+  cursor: none;
+  font-family: 'Lato', sans-serif;
+  background: #001f3f;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+
 /* Fixed Header */
 header {
   position: fixed;

@@ -6,8 +6,243 @@
   <title>Forest Hill Collegiate Institute MUN - Falcons</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Link to our CSS file -->
-  <link rel="stylesheet" href="styles.css">
+  <!-- Embedded CSS for testing -->
+  <style>
+    /* Global Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    /* Base Styles */
+    body {
+      font-family: 'Lato', sans-serif;
+      background: #001f3f; /* Dark blue */
+      color: #fff;
+      overflow-x: hidden;
+      cursor: none; /* Hide default cursor */
+    }
+    /* Fixed Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px; /* Fixed header height */
+      background: #003366; /* Deep blue */
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+    }
+    header nav {
+      width: 100%;
+    }
+    header nav ul {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      list-style: none;
+      height: 100%;
+    }
+    header nav ul li {
+      margin: 0 20px;
+      position: relative;
+    }
+    header nav ul li a {
+      color: #FFD700; /* Gold */
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1em;
+      transition: color 0.3s ease;
+    }
+    header nav ul li a:hover {
+      color: #fff;
+    }
+    /* Dropdown Menu for Committees */
+    header nav ul li.dropdown:hover .dropdown-content {
+      display: block;
+    }
+    header nav ul li .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #003366;
+      min-width: 160px;
+      border-radius: 0 0 5px 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      z-index: 1001;
+    }
+    header nav ul li .dropdown-content li a {
+      display: block;
+      padding: 10px 15px;
+      color: #FFD700;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    header nav ul li .dropdown-content li a:hover {
+      background: #001f3f;
+      color: #fff;
+    }
+    /* Ensure page content doesn’t hide under the fixed header */
+    main, .hero, .registration-form, .committees-section {
+      margin-top: 70px; /* Header height (60px) + extra spacing */
+    }
+    /* Hero Section - New Cool Background */
+    .hero {
+      position: relative;
+      height: 100vh;
+      background: linear-gradient(135deg, #0d1b2a, #1b263b, #415a77);
+      background-size: 300% 300%;
+      animation: gradientBG 20s ease infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+    }
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .hero-content {
+      z-index: 2;
+    }
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3.5em;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      animation: fadeInDown 2s ease-out;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-tagline {
+      font-size: 1.5em;
+      margin-bottom: 30px;
+      animation: fadeInUp 2s ease-out;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .btn {
+      background-color: #001f3f;
+      color: #FFD700;
+      padding: 15px 30px;
+      text-decoration: none;
+      font-size: 1.2em;
+      border-radius: 5px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #FFD700;
+      color: #001f3f;
+      transform: scale(1.05);
+    }
+    /* Falcon Container as Custom Cursor */
+    .hero-animation {
+      position: fixed; /* Fixed so it stays with viewport */
+      left: 50%;
+      top: 50%;
+      width: 100px;
+      height: 100px;
+      margin-left: -50px;
+      margin-top: -50px;
+      z-index: 10000;
+      transition: left 0.15s ease, top 0.15s ease;
+    }
+    .falcon {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: invert(1) sepia(1) saturate(500%) hue-rotate(10deg) brightness(1.2);
+    }
+    /* Committees Section with Hover Effect */
+    .committees-section {
+      padding: 60px 20px;
+      background: #fff;
+      color: #001f3f;
+      text-align: center;
+      cursor: pointer;
+    }
+    .committees-section h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    .committees-section p.instruction {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+    .committees-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      pointer-events: none;
+    }
+    .committees-section:hover .committees-list {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .committee {
+      background: #f0f0f0;
+      color: #333;
+      padding: 20px;
+      width: 220px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .committee:hover {
+      transform: translateY(-5px);
+    }
+    .committee h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.4em;
+      margin-bottom: 10px;
+    }
+    .committee p {
+      font-size: 0.95em;
+    }
+    /* Registration Form */
+    .registration-form {
+      max-width: 600px;
+      margin: 80px auto 60px;
+      background: #f0f0f0;
+      color: #333;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      font-family: 'Lato', sans-serif;
+    }
+    /* Footer */
+    footer {
+      background: #003366;
+      padding: 20px 0;
+      text-align: center;
+      width: 100%;
+      font-size: 0.9em;
+      position: relative;
+      bottom: 0;
+    }
+    footer p {
+      margin: 5px 0;
+    }
+    footer a {
+      color: #FFD700;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
   <!-- Fixed Navigation -->
@@ -17,7 +252,6 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="registration.html">Registration</a></li>
-        <!-- Dropdown Menu for Committees -->
         <li class="dropdown">
           <a href="committees.html">Committees</a>
           <ul class="dropdown-content">
@@ -77,7 +311,7 @@
 
   <!-- Consolidated JavaScript for Custom Cursor and Idle Orbit -->
   <script>
-    // Variables to store the last known mouse coordinates and timers
+    // Variables for mouse tracking and idle animation
     let lastMouseX = window.innerWidth / 2;
     let lastMouseY = window.innerHeight / 2;
     let idleTimer = null;
@@ -86,7 +320,7 @@
     // Get the falcon container element (custom cursor)
     const falconContainer = document.querySelector('.hero-animation');
 
-    // Function to start the idle orbit animation
+    // Function to start idle orbit animation
     function startIdleAnimation() {
       let angle = 0;
       const radius = 50; // Orbit radius in pixels
@@ -94,13 +328,12 @@
         angle += 0.05; // Adjust speed as needed
         const newX = lastMouseX + radius * Math.cos(angle);
         const newY = lastMouseY + radius * Math.sin(angle);
-        // Update the falcon container's position (center the image)
         falconContainer.style.left = (newX - falconContainer.offsetWidth / 2) + 'px';
         falconContainer.style.top = (newY - falconContainer.offsetHeight / 2) + 'px';
-      }, 16); // Approximately 60 FPS
+      }, 16); // ~60 FPS
     }
 
-    // Function to stop the idle orbit animation
+    // Function to stop idle orbit animation
     function stopIdleAnimation() {
       if (idleAnimation) {
         clearInterval(idleAnimation);
@@ -108,16 +341,16 @@
       }
     }
 
-    // Listen for mouse movement
+    // Consolidated mousemove event listener
     document.addEventListener('mousemove', function(e) {
       lastMouseX = e.clientX;
       lastMouseY = e.clientY;
-      // Immediately update falcon position (centered on cursor)
+      // Update falcon position centered on the cursor
       falconContainer.style.left = (e.clientX - falconContainer.offsetWidth / 2) + 'px';
       falconContainer.style.top = (e.clientY - falconContainer.offsetHeight / 2) + 'px';
-      // Stop idle orbit if running
+      // Stop idle animation if running
       stopIdleAnimation();
-      // Reset the idle timer (if no movement for 1.5 seconds, start orbiting)
+      // Reset idle timer (if no movement for 1.5 seconds, start orbiting)
       if (idleTimer) clearTimeout(idleTimer);
       idleTimer = setTimeout(startIdleAnimation, 1500);
     });

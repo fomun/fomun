@@ -1,37 +1,43 @@
-/* Reset some default styles */
+/* Global Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+/* Base Styles */
 body {
-  padding-top: 70px; /* Adjust the value as needed */
   font-family: 'Lato', sans-serif;
-  background: #001f3f; /* Dark blue base */
+  background: #001f3f; /* Dark blue */
   color: #fff;
   overflow-x: hidden;
 }
 
-/* Headings: Use Montserrat for a cool look */
-h1, h2, h3, .hero-title {
-  font-family: 'Montserrat', sans-serif;
-}
-
-/* Navigation */
+/* Fixed Header */
 header {
-  background: #003366; /* Deep blue */
-  padding: 15px 0;
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
+  height: 60px; /* Fixed header height */
+  background: #003366; /* Deep blue */
   z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+header nav {
+  width: 100%;
 }
 header nav ul {
-  list-style: none;
   display: flex;
+  align-items: center;
   justify-content: center;
+  list-style: none;
+  height: 100%;
 }
 header nav ul li {
   margin: 0 20px;
+  position: relative;
 }
 header nav ul li a {
   color: #FFD700; /* Gold */
@@ -44,11 +50,42 @@ header nav ul li a:hover {
   color: #fff;
 }
 
+/* Dropdown Menu for Committees */
+header nav ul li.dropdown:hover .dropdown-content {
+  display: block;
+}
+header nav ul li .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #003366;
+  min-width: 160px;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 1001;
+}
+header nav ul li .dropdown-content li a {
+  display: block;
+  padding: 10px 15px;
+  color: #FFD700;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+header nav ul li .dropdown-content li a:hover {
+  background: #001f3f;
+  color: #fff;
+}
+
+/* Space for Fixed Header: Apply margin-top to main sections */
+main, .hero, .registration-form, .committees-section {
+  margin-top: 70px; /* Header height (60px) + extra spacing */
+}
+
 /* Hero Section */
 .hero {
   position: relative;
   height: 100vh;
-  /* Dynamic gradient background */
   background: linear-gradient(135deg, #003366, #FFD700);
   background-size: 400% 400%;
   animation: gradientBG 15s ease infinite;
@@ -67,6 +104,7 @@ header nav ul li a:hover {
   z-index: 2;
 }
 .hero-title {
+  font-family: 'Montserrat', sans-serif;
   font-size: 3.5em;
   margin-bottom: 20px;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
@@ -100,7 +138,7 @@ header nav ul li a:hover {
   transform: scale(1.05);
 }
 
-/* Falcon Animation */
+/* Falcon Logo in Hero Section */
 .hero-animation {
   position: absolute;
   bottom: 20px;
@@ -112,9 +150,9 @@ header nav ul li a:hover {
 .falcon {
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Maintain aspect ratio */
+  object-fit: contain; /* Maintain natural aspect ratio */
   animation: falconFly 5s ease-in-out infinite;
-  /* Apply filter to color the logo gold (tweak if needed) */
+  /* Filter to recolor a black logo to gold */
   filter: invert(1) sepia(1) saturate(500%) hue-rotate(10deg) brightness(1.2);
 }
 @keyframes falconFly {
@@ -123,7 +161,7 @@ header nav ul li a:hover {
   100% { transform: translate(0, 0) rotate(0deg); opacity: 0.8; }
 }
 
-/* Committees Section with Hover Effect */
+/* Committees Section with Hover Dropdown (if used on a separate page) */
 .committees-section {
   padding: 60px 20px;
   background: #fff;
@@ -132,9 +170,9 @@ header nav ul li a:hover {
   cursor: pointer;
 }
 .committees-section h2 {
+  font-family: 'Montserrat', sans-serif;
   font-size: 2.5em;
   margin-bottom: 20px;
-  font-family: 'Montserrat', sans-serif;
 }
 .committees-section p.instruction {
   font-size: 1.2em;
@@ -166,12 +204,24 @@ header nav ul li a:hover {
   transform: translateY(-5px);
 }
 .committee h3 {
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.4em;
   margin-bottom: 10px;
-  font-family: 'Montserrat', sans-serif;
 }
 .committee p {
   font-size: 0.95em;
+}
+
+/* Registration Form */
+.registration-form {
+  max-width: 600px;
+  margin: 80px auto 60px;
+  background: #f0f0f0;
+  color: #333;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  font-family: 'Lato', sans-serif;
 }
 
 /* Footer */
@@ -193,44 +243,4 @@ footer a {
 }
 footer a:hover {
   text-decoration: underline;
-}
-
-
-/* Dropdown Menu Styles */
-header nav ul li.dropdown {
-  position: relative;
-}
-
-header nav ul li .dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%; /* Position the submenu below the parent */
-  left: 0;
-  background: #003366; /* Deep blue background matching the header */
-  min-width: 160px;
-  z-index: 1001;
-  border-radius: 0 0 5px 5px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-header nav ul li .dropdown-content li {
-  margin: 0;
-}
-
-header nav ul li .dropdown-content li a {
-  display: block;
-  padding: 10px 15px;
-  color: #FFD700; /* Gold text */
-  text-decoration: none;
-  transition: background 0.3s ease;
-}
-
-header nav ul li .dropdown-content li a:hover {
-  background: #001f3f; /* Darker blue on hover */
-  color: #fff;
-}
-
-/* Show the dropdown on hover */
-header nav ul li.dropdown:hover .dropdown-content {
-  display: block;
 }

@@ -144,23 +144,27 @@ main, .hero, .registration-form, .committees-section {
 
 /* Falcon Logo in Hero Section */
 /* Falcon Animation: Make it fly around */
+/* Falcon Container */
 .hero-animation {
   position: absolute;
   left: 50%;
   top: 50%;
   width: 100px;
   height: 100px;
-  margin-left: -50px; /* Center horizontally */
-  margin-top: -50px;  /* Center vertically */
+  margin-left: -50px; /* Center horizontally initially */
+  margin-top: -50px;  /* Center vertically initially */
   z-index: 1;
-  animation: falconFlight 10s ease-in-out infinite;
+  /* Use a transition for smooth movement when following the cursor */
+  transition: left 0.2s ease, top 0.2s ease;
 }
 
+/* Falcon Image */
 .falcon {
   width: 100%;
   height: 100%;
   object-fit: contain; /* Maintain natural aspect ratio */
-  /* Apply filter to recolor a black logo to gold */
+  /* Remove any previous animation */
+  /* Recolor a black logo to a gold tone */
   filter: invert(1) sepia(1) saturate(500%) hue-rotate(10deg) brightness(1.2);
 }
 

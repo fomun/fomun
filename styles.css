@@ -164,7 +164,6 @@ main, .hero, .registration-form, .committees-section {
   height: 100%;
   object-fit: contain; /* Maintain natural aspect ratio */
   /* Remove any previous animation */
-  /* Recolor a black logo to a gold tone */
   filter: invert(1) sepia(1) saturate(500%) hue-rotate(10deg) brightness(1.2);
 }
 

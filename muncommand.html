@@ -9,7 +9,11 @@
   <!-- Embedded CSS (for testing; later move to styles.css) -->
   <style>
     /* ================= Global Reset and Base Styles ================= */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
       font-family: 'Lato', sans-serif;
       background: #001f3f; /* Dark blue */
@@ -25,12 +29,14 @@
       left: 0;
       width: 100%;
       height: 60px;
-      background: #003366;
+      background: #003366; /* Deep blue */
       z-index: 1000;
       display: flex;
       align-items: center;
     }
-    header nav { width: 100%; }
+    header nav {
+      width: 100%;
+    }
     header nav ul {
       display: flex;
       align-items: center;
@@ -43,7 +49,7 @@
       position: relative;
     }
     header nav ul li a {
-      color: #FFD700;
+      color: #FFD700; /* Gold */
       text-decoration: none;
       font-weight: bold;
       font-size: 1.1em;
@@ -53,7 +59,7 @@
     header nav ul li a.active {
       color: #fff;
     }
-    /* Dropdown for Committees */
+    /* Dropdown Menu for Committees */
     header nav ul li.dropdown:hover .dropdown-content {
       display: block;
     }
@@ -80,7 +86,7 @@
       color: #fff;
     }
     
-    /* ================= Tabbed Interface Styles ================= */
+    /* ================= Tabbed Interface ================= */
     .tab-container {
       max-width: 1200px;
       margin: 80px auto 50px;
@@ -121,7 +127,9 @@
     .timer-panel {
       text-align: center;
     }
-    .timer-panel h2 { margin-bottom: 20px; }
+    .timer-panel h2 {
+      margin-bottom: 20px;
+    }
     .timer-display {
       font-size: 2.5em;
       margin-bottom: 20px;
@@ -146,7 +154,10 @@
     }
     
     /* ================= Attendance Panel ================= */
-    .attendance-panel h2 { text-align: center; margin-bottom: 15px; }
+    .attendance-panel h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
     .attendance-panel table {
       width: 100%;
       border-collapse: collapse;
@@ -156,13 +167,18 @@
       border-radius: 5px;
       overflow: hidden;
     }
-    .attendance-panel th, .attendance-panel td {
+    .attendance-panel th,
+    .attendance-panel td {
       padding: 10px;
       border-bottom: 1px solid #ccc;
       text-align: left;
     }
-    .attendance-panel th { background: #FFD700; }
-    .attendance-panel td input[type="checkbox"] { transform: scale(1.2); }
+    .attendance-panel th {
+      background: #FFD700;
+    }
+    .attendance-panel td input[type="checkbox"] {
+      transform: scale(1.2);
+    }
     .attendance-panel button {
       margin-top: 15px;
       padding: 10px 20px;
@@ -173,12 +189,18 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-    .attendance-panel button:hover { transform: scale(1.05); }
+    .attendance-panel button:hover {
+      transform: scale(1.05);
+    }
     
     /* ================= Motions Panel ================= */
-    .motions-panel h2 { text-align: center; margin-bottom: 15px; }
+    .motions-panel h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
     .motions-panel form input,
-    .motions-panel form textarea {
+    .motions-panel form textarea,
+    .motions-panel form select {
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 5px;
@@ -195,7 +217,9 @@
       transition: transform 0.3s ease;
       margin-bottom: 20px;
     }
-    .motions-panel form button:hover { transform: scale(1.05); }
+    .motions-panel form button:hover {
+      transform: scale(1.05);
+    }
     .motion-list {
       list-style: none;
       padding: 0;
@@ -217,10 +241,15 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-    .motion-list button:hover { transform: scale(1.05); }
+    .motion-list button:hover {
+      transform: scale(1.05);
+    }
     
     /* ================= Delegate Management Panel ================= */
-    .delegate-panel h2 { text-align: center; margin-bottom: 15px; }
+    .delegate-panel h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
     .delegate-panel form {
       display: flex;
       flex-wrap: wrap;
@@ -243,7 +272,9 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-    .delegate-panel form button:hover { transform: scale(1.05); }
+    .delegate-panel form button:hover {
+      transform: scale(1.05);
+    }
     .delegate-list table {
       width: 100%;
       border-collapse: collapse;
@@ -253,12 +284,15 @@
       overflow: hidden;
       margin-top: 10px;
     }
-    .delegate-list th, .delegate-list td {
+    .delegate-list th,
+    .delegate-list td {
       padding: 10px;
       text-align: left;
       border-bottom: 1px solid #ccc;
     }
-    .delegate-list th { background: #FFD700; }
+    .delegate-list th {
+      background: #FFD700;
+    }
     .delegate-list td button {
       background: #FF4136;
       border: none;
@@ -268,10 +302,78 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-    .delegate-list td button:hover { transform: scale(1.05); }
+    .delegate-list td button:hover {
+      transform: scale(1.05);
+    }
+    
+    /* ================= Speaker Queue Panel ================= */
+    .speaker-panel h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .speaker-panel form {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+    .speaker-panel form input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 250px;
+    }
+    .speaker-panel form button {
+      padding: 10px 20px;
+      background: #FFD700;
+      border: none;
+      color: #001f3f;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .speaker-panel form button:hover {
+      transform: scale(1.05);
+    }
+    .speaker-list {
+      width: 100%;
+      margin-top: 10px;
+    }
+    .speaker-list table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      color: #001f3f;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .speaker-list th,
+    .speaker-list td {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+      text-align: left;
+    }
+    .speaker-list th {
+      background: #FFD700;
+    }
+    .speaker-list td button {
+      background: #FF4136;
+      border: none;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .speaker-list td button:hover {
+      transform: scale(1.05);
+    }
     
     /* ================= Command Log Panel ================= */
-    .command-log-panel h2 { text-align: center; margin-bottom: 15px; }
+    .command-log-panel h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
     .command-log {
       background: #f0f0f0;
       color: #001f3f;
@@ -292,12 +394,16 @@
       bottom: 0;
       width: 100%;
     }
-    footer p { margin: 5px 0; }
+    footer p {
+      margin: 5px 0;
+    }
     footer a {
       color: #FFD700;
       text-decoration: none;
     }
-    footer a:hover { text-decoration: underline; }
+    footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -323,17 +429,18 @@
     </nav>
   </header>
   
-  <!-- Main Dashboard with Tabs -->
+  <!-- Main Dashboard with Tabbed Interface -->
   <main class="tab-container">
     <ul class="tabs">
       <li class="active" data-tab="timerTab">Timer</li>
       <li data-tab="attendanceTab">Attendance</li>
       <li data-tab="motionsTab">Motions</li>
       <li data-tab="delegatesTab">Delegates</li>
+      <li data-tab="speakerQueueTab">Speaker Queue</li>
       <li data-tab="commandLogTab">Command Log</li>
     </ul>
     
-    <!-- Timer Tab Content -->
+    <!-- Timer Tab -->
     <div class="tab-content active" id="timerTab">
       <div class="timer-panel">
         <h2>Session Timer</h2>
@@ -350,7 +457,7 @@
       </div>
     </div>
     
-    <!-- Attendance Tab Content -->
+    <!-- Attendance Tab -->
     <div class="tab-content" id="attendanceTab">
       <div class="attendance-panel">
         <h2>Attendance</h2>
@@ -370,13 +477,19 @@
       </div>
     </div>
     
-    <!-- Motions Tab Content -->
+    <!-- Motions Tab -->
     <div class="tab-content" id="motionsTab">
       <div class="motions-panel">
         <h2>Create New Motion</h2>
         <form id="motionForm">
           <input type="text" id="motionTitle" placeholder="Motion Title" required>
           <textarea id="motionDescription" placeholder="Motion Description" rows="3" required></textarea>
+          <label for="motionType">Motion Type:</label>
+          <select id="motionType" required>
+            <option value="mod">Modification (MOD)</option>
+            <option value="unmod">Unmodification (UNMOD)</option>
+            <option value="other">Other</option>
+          </select>
           <button type="submit">Call Motion</button>
         </form>
         <ul class="motion-list" id="motionList">
@@ -385,7 +498,7 @@
       </div>
     </div>
     
-    <!-- Delegates Tab Content -->
+    <!-- Delegates Tab -->
     <div class="tab-content" id="delegatesTab">
       <div class="delegate-panel">
         <h2>Delegate Management</h2>
@@ -411,12 +524,37 @@
       </div>
     </div>
     
-    <!-- Command Log Tab Content -->
+    <!-- Speaker Queue Tab -->
+    <div class="tab-content" id="speakerQueueTab">
+      <div class="speaker-panel">
+        <h2>Speaker Queue</h2>
+        <form id="speakerForm">
+          <input type="text" id="speakerName" placeholder="Speaker Name" required>
+          <button type="submit">Add Speaker</button>
+        </form>
+        <div class="speaker-list">
+          <table id="speakerTable">
+            <thead>
+              <tr>
+                <th>Speaker</th>
+                <th>Time Spoken</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Speaker rows will be added here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Command Log Tab -->
     <div class="tab-content" id="commandLogTab">
       <div class="command-log-panel">
         <h2>Command Log</h2>
         <div class="command-log" id="commandLog">
-          <!-- Logged commands will appear here -->
+          <!-- Command log entries will appear here -->
         </div>
       </div>
     </div>
@@ -428,7 +566,7 @@
     <p>&copy; 2025 Forest Hill Collegiate Institute Model UN</p>
   </footer>
   
-  <!-- Consolidated JavaScript for Tab Navigation and MUN Command Functionality -->
+  <!-- Consolidated JavaScript for Advanced MUN Command Center -->
   <script>
     /**************** Tab Navigation ****************/
     const tabs = document.querySelectorAll('.tabs li');
@@ -455,7 +593,6 @@
     function startTimer() {
       const sessionInput = document.getElementById('sessionTime');
       sessionDuration = parseInt(sessionInput.value, 10) * 60;
-      // If timer hasn't started, set remainingSeconds to the new duration
       if (remainingSeconds === 0 || remainingSeconds === sessionDuration) {
         remainingSeconds = sessionDuration;
       }
@@ -487,39 +624,6 @@
       logCommand("Session Reset");
     }
     updateTimerDisplay();
-    
-    /**************** Delegate Management Functionality ****************/
-    const delegateForm = document.getElementById('delegateForm');
-    const delegateTableBody = document.querySelector('#delegateTable tbody');
-    delegateForm.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const name = document.getElementById('delegateName').value.trim();
-      const country = document.getElementById('delegateCountry').value.trim();
-      if (name === "" || country === "") return;
-      addDelegate(name, country);
-      document.getElementById('delegateName').value = "";
-      document.getElementById('delegateCountry').value = "";
-    });
-    function addDelegate(name, country) {
-      const row = document.createElement('tr');
-      const nameCell = document.createElement('td');
-      const countryCell = document.createElement('td');
-      const actionCell = document.createElement('td');
-      nameCell.textContent = name;
-      countryCell.textContent = country;
-      const delButton = document.createElement('button');
-      delButton.textContent = "Delete";
-      delButton.onclick = function() {
-        delegateTableBody.removeChild(row);
-        logCommand(`Removed Delegate: ${name} (${country})`);
-      };
-      actionCell.appendChild(delButton);
-      row.appendChild(nameCell);
-      row.appendChild(countryCell);
-      row.appendChild(actionCell);
-      delegateTableBody.appendChild(row);
-      logCommand(`Added Delegate: ${name} (${country})`);
-    }
     
     /**************** Attendance Functionality ****************/
     function recordAttendance() {
@@ -561,23 +665,25 @@
       e.preventDefault();
       const title = document.getElementById('motionTitle').value.trim();
       const description = document.getElementById('motionDescription').value.trim();
+      const type = document.getElementById('motionType').value;
       if (title === "" || description === "") return;
-      addMotion(title, description);
+      addMotion(title, description, type);
       motionForm.reset();
     });
-    function addMotion(title, description) {
+    function addMotion(title, description, type) {
       const motionItem = document.createElement('li');
       const motionHeader = document.createElement('h3');
       motionHeader.textContent = title;
       const motionDesc = document.createElement('p');
       motionDesc.textContent = description;
+      // Create separate vote buttons for "For" and "Against"
       const voteForButton = document.createElement('button');
       voteForButton.textContent = "For (0)";
       let voteForCount = 0;
       voteForButton.onclick = function() {
         voteForCount++;
         voteForButton.textContent = "For (" + voteForCount + ")";
-        logCommand(`Motion '${title}' - Vote For: ${voteForCount}`);
+        logCommand(`Motion '${title}' (${type}) - Vote For: ${voteForCount}`);
       };
       const voteAgainstButton = document.createElement('button');
       voteAgainstButton.textContent = "Against (0)";
@@ -585,14 +691,102 @@
       voteAgainstButton.onclick = function() {
         voteAgainstCount++;
         voteAgainstButton.textContent = "Against (" + voteAgainstCount + ")";
-        logCommand(`Motion '${title}' - Vote Against: ${voteAgainstCount}`);
+        logCommand(`Motion '${title}' (${type}) - Vote Against: ${voteAgainstCount}`);
       };
       motionItem.appendChild(motionHeader);
       motionItem.appendChild(motionDesc);
       motionItem.appendChild(voteForButton);
       motionItem.appendChild(voteAgainstButton);
       motionList.appendChild(motionItem);
-      logCommand(`Motion Called: ${title}`);
+      logCommand(`Motion Called: ${title} (${type})`);
+    }
+    
+    /**************** Delegate Management Functionality ****************/
+    const delegateForm = document.getElementById('delegateForm');
+    const delegateTableBody = document.querySelector('#delegateTable tbody');
+    delegateForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('delegateName').value.trim();
+      const country = document.getElementById('delegateCountry').value.trim();
+      if (name === "" || country === "") return;
+      addDelegate(name, country);
+      document.getElementById('delegateName').value = "";
+      document.getElementById('delegateCountry').value = "";
+    });
+    function addDelegate(name, country) {
+      const row = document.createElement('tr');
+      const nameCell = document.createElement('td');
+      const countryCell = document.createElement('td');
+      const actionCell = document.createElement('td');
+      nameCell.textContent = name;
+      countryCell.textContent = country;
+      const delButton = document.createElement('button');
+      delButton.textContent = "Delete";
+      delButton.onclick = function() {
+        delegateTableBody.removeChild(row);
+        logCommand(`Removed Delegate: ${name} (${country})`);
+      };
+      actionCell.appendChild(delButton);
+      row.appendChild(nameCell);
+      row.appendChild(countryCell);
+      row.appendChild(actionCell);
+      delegateTableBody.appendChild(row);
+      logCommand(`Added Delegate: ${name} (${country})`);
+    }
+    
+    /**************** Speaker Queue Functionality ****************/
+    const speakerForm = document.getElementById('speakerForm');
+    const speakerTableBody = document.getElementById('speakerTable').querySelector('tbody');
+    speakerForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const speakerName = document.getElementById('speakerName').value.trim();
+      if (speakerName === "") return;
+      addSpeaker(speakerName);
+      document.getElementById('speakerName').value = "";
+    });
+    function addSpeaker(name) {
+      const row = document.createElement('tr');
+      const nameCell = document.createElement('td');
+      const timeCell = document.createElement('td');
+      const actionCell = document.createElement('td');
+      nameCell.textContent = name;
+      // Initialize individual speaking time (in seconds)
+      let speakingTime = 0;
+      timeCell.textContent = formatTime(speakingTime);
+      // Create start/stop buttons for individual timer
+      const startButton = document.createElement('button');
+      startButton.textContent = "Start";
+      const stopButton = document.createElement('button');
+      stopButton.textContent = "Stop";
+      stopButton.disabled = true;
+      let speakerTimer = null;
+      startButton.onclick = function() {
+        startButton.disabled = true;
+        stopButton.disabled = false;
+        speakerTimer = setInterval(() => {
+          speakingTime++;
+          timeCell.textContent = formatTime(speakingTime);
+        }, 1000);
+        logCommand(`Speaker ${name} started speaking`);
+      };
+      stopButton.onclick = function() {
+        clearInterval(speakerTimer);
+        startButton.disabled = false;
+        stopButton.disabled = true;
+        logCommand(`Speaker ${name} stopped speaking at ${formatTime(speakingTime)}`);
+      };
+      actionCell.appendChild(startButton);
+      actionCell.appendChild(stopButton);
+      row.appendChild(nameCell);
+      row.appendChild(timeCell);
+      row.appendChild(actionCell);
+      speakerTableBody.appendChild(row);
+      logCommand(`Added Speaker: ${name}`);
+    }
+    function formatTime(seconds) {
+      const mins = Math.floor(seconds / 60);
+      const secs = seconds % 60;
+      return String(mins).padStart(2, '0') + ':' + String(secs).padStart(2, '0');
     }
     
     /**************** Command Log Functionality ****************/
@@ -604,6 +798,9 @@
       logDiv.appendChild(entry);
       logDiv.scrollTop = logDiv.scrollHeight;
     }
+    
+    /**************** Tab Navigation Initialization ****************/
+    // (Already handled above by the tab navigation event listeners)
   </script>
 </body>
 </html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MUN Command - Forest Hill Collegiate MUN</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Link to your main CSS file (or include custom styles here) -->
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Custom styles for the MUN Command page */
+    .command-container {
+      max-width: 800px;
+      margin: 100px auto 50px;
+      background: #f0f0f0;
+      color: #001f3f;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      font-family: 'Lato', sans-serif;
+    }
+    .command-container h1 {
+      font-family: 'Montserrat', sans-serif;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .command-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .command-button {
+      background-color: #001f3f;
+      color: #FFD700;
+      border: none;
+      padding: 15px 20px;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .command-button:hover {
+      background-color: #FFD700;
+      color: #001f3f;
+      transform: scale(1.05);
+    }
+    .command-log {
+      margin-top: 40px;
+      background: #fff;
+      border: 1px solid #ccc;
+      padding: 20px;
+      height: 200px;
+      overflow-y: auto;
+      border-radius: 5px;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <!-- Fixed Navigation (you can include your site-wide header here) -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="registration.html">Registration</a></li>
+        <li class="dropdown">
+          <a href="committees.html">Committees</a>
+          <ul class="dropdown-content">
+            <li><a href="fictional-crisis.html">Fictional Crisis</a></li>
+            <li><a href="historical-crisis.html">Historical Crisis</a></li>
+            <li><a href="environmental-crisis.html">Environmental Crisis</a></li>
+            <li><a href="economic-crisis.html">Economic Crisis</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="muncommand.html" class="active">MUN Command</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- MUN Command Page Content -->
+  <main>
+    <div class="command-container">
+      <h1>MUN Command Center</h1>
+      <p>Use the buttons below to simulate committee commands.</p>
+      <div class="command-buttons">
+        <button class="command-button" onclick="logCommand('Call for Speakers')">Call for Speakers</button>
+        <button class="command-button" onclick="logCommand('Roll Call')">Roll Call</button>
+        <button class="command-button" onclick="logCommand('Motion to Suspend Debate')">Suspend Debate</button>
+        <button class="command-button" onclick="logCommand('Timer Start')">Start Timer</button>
+        <button class="command-button" onclick="logCommand('Timer Stop')">Stop Timer</button>
+        <button class="command-button" onclick="logCommand('Adjourn Committee')">Adjourn Committee</button>
+      </div>
+      <div class="command-log" id="commandLog">
+        <!-- Command log entries will appear here -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer (site-wide) -->
+  <footer>
+    <p>Follow us on Instagram: <a href="https://instagram.com/fhcimun" target="_blank">@fhcimun</a></p>
+    <p>&copy; 2025 Forest Hill Collegiate Institute Model UN</p>
+  </footer>
+
+  <!-- JavaScript for MUN Command functionality -->
+  <script>
+    // Function to log a command in the command log
+    function logCommand(command) {
+      const logDiv = document.getElementById('commandLog');
+      const timeStamp = new Date().toLocaleTimeString();
+      // Create a new log entry
+      const entry = document.createElement('p');
+      entry.textContent = `[${timeStamp}] Command Issued: ${command}`;
+      // Append the entry to the log
+      logDiv.appendChild(entry);
+      // Auto-scroll to the bottom of the log
+      logDiv.scrollTop = logDiv.scrollHeight;
+    }
+  </script>
+</body>
+</html>

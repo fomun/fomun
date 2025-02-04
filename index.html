@@ -80,5 +80,22 @@
 
   <!-- Optional JavaScript file for future interactivity -->
   <script src="script.js"></script>
+
+  <script>
+  // Listen for mouse movement on the document
+  document.addEventListener('mousemove', function(e) {
+    // Get the falcon container element
+    const falconContainer = document.querySelector('.hero-animation');
+    if (!falconContainer) return;
+    
+    // Calculate half the width and height for centering the image around the cursor
+    const falconWidth = falconContainer.offsetWidth;
+    const falconHeight = falconContainer.offsetHeight;
+    
+    // Update the position so the falcon's center is at the mouse cursor
+    falconContainer.style.left = (e.clientX - falconWidth / 2) + 'px';
+    falconContainer.style.top = (e.clientY - falconHeight / 2) + 'px';
+  });
+</script>
 </body>
 </html>

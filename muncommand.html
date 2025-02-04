@@ -8,24 +8,33 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
   <!-- Embedded CSS (for development; later move to styles.css) -->
   <style>
-    /* ================= Global Reset and Base Styles ================= */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    /* =======================================================================
+       Global Reset and Base Styles 
+       ======================================================================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
       font-family: 'Lato', sans-serif;
-      background: #001f3f;
+      background: #001f3f; /* Dark blue background */
       color: #fff;
       overflow-x: hidden;
-      cursor: auto;
     }
+    /* Hide default cursor if using a custom one (optional) */
+    /* body { cursor: none; } */
     
-    /* ================= Fixed Header and Navigation ================= */
+    /* =======================================================================
+       Fixed Header and Navigation
+       ======================================================================= */
     header {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 60px;
-      background: #003366;
+      background: #003366; /* Deep blue */
       z-index: 1000;
       display: flex;
       align-items: center;
@@ -33,7 +42,6 @@
     header nav { width: 100%; }
     header nav ul {
       display: flex;
-      align-items: center;
       justify-content: center;
       list-style: none;
       height: 100%;
@@ -43,7 +51,7 @@
       position: relative;
     }
     header nav ul li a {
-      color: #FFD700;
+      color: #FFD700; /* Gold */
       text-decoration: none;
       font-weight: bold;
       font-size: 1.1em;
@@ -80,7 +88,9 @@
       color: #fff;
     }
     
-    /* ================= Tabbed Interface ================= */
+    /* =======================================================================
+       Tabbed Interface
+       ======================================================================= */
     .tab-container {
       max-width: 1200px;
       margin: 80px auto 50px;
@@ -118,11 +128,15 @@
       display: block;
     }
     
-    /* ================= Timer Panel ================= */
+    /* =======================================================================
+       Timer Panel (Session Timer)
+       ======================================================================= */
     .timer-panel {
       text-align: center;
     }
-    .timer-panel h2 { margin-bottom: 20px; }
+    .timer-panel h2 {
+      margin-bottom: 20px;
+    }
     .timer-display {
       font-size: 2.5em;
       margin-bottom: 20px;
@@ -142,9 +156,13 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-    .timer-buttons button:hover { transform: scale(1.05); }
+    .timer-buttons button:hover {
+      transform: scale(1.05);
+    }
     
-    /* ================= Attendance Panel ================= */
+    /* =======================================================================
+       Attendance Panel
+       ======================================================================= */
     .attendance-panel h2 {
       text-align: center;
       margin-bottom: 15px;
@@ -158,13 +176,18 @@
       border-radius: 5px;
       overflow: hidden;
     }
-    .attendance-panel th, .attendance-panel td {
+    .attendance-panel th,
+    .attendance-panel td {
       padding: 10px;
       border-bottom: 1px solid #ccc;
       text-align: left;
     }
-    .attendance-panel th { background: #FFD700; }
-    .attendance-panel td input[type="checkbox"] { transform: scale(1.2); }
+    .attendance-panel th {
+      background: #FFD700;
+    }
+    .attendance-panel td input[type="checkbox"] {
+      transform: scale(1.2);
+    }
     .attendance-panel button {
       margin-top: 15px;
       padding: 10px 20px;
@@ -175,10 +198,17 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-    .attendance-panel button:hover { transform: scale(1.05); }
+    .attendance-panel button:hover {
+      transform: scale(1.05);
+    }
     
-    /* ================= Motions Panel ================= */
-    .motions-panel h2 { text-align: center; margin-bottom: 15px; }
+    /* =======================================================================
+       Motions Panel
+       ======================================================================= */
+    .motions-panel h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
     .motions-panel form input,
     .motions-panel form textarea,
     .motions-panel form select {
@@ -198,7 +228,9 @@
       transition: transform 0.3s ease;
       margin-bottom: 20px;
     }
-    .motions-panel form button:hover { transform: scale(1.05); }
+    .motions-panel form button:hover {
+      transform: scale(1.05);
+    }
     .motion-list {
       list-style: none;
       padding: 0;
@@ -220,10 +252,17 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-    .motion-list button:hover { transform: scale(1.05); }
+    .motion-list button:hover {
+      transform: scale(1.05);
+    }
     
-    /* ================= Delegate Management Panel ================= */
-    .delegate-panel h2 { text-align: center; margin-bottom: 15px; }
+    /* =======================================================================
+       Delegate Management Panel
+       ======================================================================= */
+    .delegate-panel h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
     .delegate-panel form {
       display: flex;
       flex-wrap: wrap;
@@ -246,7 +285,9 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-    .delegate-panel form button:hover { transform: scale(1.05); }
+    .delegate-panel form button:hover {
+      transform: scale(1.05);
+    }
     .delegate-list table {
       width: 100%;
       border-collapse: collapse;
@@ -256,12 +297,15 @@
       overflow: hidden;
       margin-top: 10px;
     }
-    .delegate-list th, .delegate-list td {
+    .delegate-list th,
+    .delegate-list td {
       padding: 10px;
       text-align: left;
       border-bottom: 1px solid #ccc;
     }
-    .delegate-list th { background: #FFD700; }
+    .delegate-list th {
+      background: #FFD700;
+    }
     .delegate-list td button {
       background: #FF4136;
       border: none;
@@ -271,10 +315,17 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-    .delegate-list td button:hover { transform: scale(1.05); }
+    .delegate-list td button:hover {
+      transform: scale(1.05);
+    }
     
-    /* ================= Speaker Queue Panel ================= */
-    .speaker-panel h2 { text-align: center; margin-bottom: 15px; }
+    /* =======================================================================
+       Speaker Queue Panel
+       ======================================================================= */
+    .speaker-panel h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
     .speaker-panel form {
       display: flex;
       justify-content: center;
@@ -296,7 +347,9 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-    .speaker-panel form button:hover { transform: scale(1.05); }
+    .speaker-panel form button:hover {
+      transform: scale(1.05);
+    }
     .speaker-list {
       width: 100%;
       margin-top: 10px;
@@ -309,12 +362,15 @@
       border-radius: 5px;
       overflow: hidden;
     }
-    .speaker-list th, .speaker-list td {
+    .speaker-list th,
+    .speaker-list td {
       padding: 10px;
       border-bottom: 1px solid #ccc;
       text-align: left;
     }
-    .speaker-list th { background: #FFD700; }
+    .speaker-list th {
+      background: #FFD700;
+    }
     .speaker-list td button {
       background: #FF4136;
       border: none;
@@ -324,9 +380,13 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-    .speaker-list td button:hover { transform: scale(1.05); }
+    .speaker-list td button:hover {
+      transform: scale(1.05);
+    }
     
-    /* ================= Moderated Caucus Panel ================= */
+    /* =======================================================================
+       Moderated Caucus Panel
+       ======================================================================= */
     .caucus-panel {
       background: #003366;
       padding: 20px;
@@ -334,13 +394,21 @@
       margin-bottom: 30px;
       text-align: center;
     }
-    .caucus-panel h2 { margin-bottom: 20px; }
+    .caucus-panel h2 {
+      margin-bottom: 20px;
+    }
+    .caucus-panel form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
     .caucus-panel form input {
       padding: 10px;
       border: 1px solid #ccc;
       border-radius: 5px;
-      width: 200px;
-      margin-right: 10px;
+      width: 180px;
     }
     .caucus-panel form button {
       padding: 10px 20px;
@@ -351,7 +419,9 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-    .caucus-panel form button:hover { transform: scale(1.05); }
+    .caucus-panel form button:hover {
+      transform: scale(1.05);
+    }
     .caucus-timer-display {
       font-size: 2em;
       margin: 20px 0;
@@ -366,7 +436,9 @@
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-    .caucus-buttons button:hover { transform: scale(1.05); }
+    .caucus-buttons button:hover {
+      transform: scale(1.05);
+    }
     .caucus-delegate-list {
       margin-top: 20px;
       text-align: left;
@@ -380,15 +452,23 @@
       overflow: hidden;
       margin-top: 10px;
     }
-    .caucus-delegate-list th, .caucus-delegate-list td {
+    .caucus-delegate-list th,
+    .caucus-delegate-list td {
       padding: 10px;
       border-bottom: 1px solid #ccc;
       text-align: left;
     }
-    .caucus-delegate-list th { background: #FFD700; }
+    .caucus-delegate-list th {
+      background: #FFD700;
+    }
     
-    /* ================= Command Log Panel ================= */
-    .command-log-panel h2 { text-align: center; margin-bottom: 15px; }
+    /* =======================================================================
+       Command Log Panel
+       ======================================================================= */
+    .command-log-panel h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
     .command-log {
       background: #f0f0f0;
       color: #001f3f;
@@ -399,7 +479,9 @@
       font-family: monospace;
     }
     
-    /* ================= Footer ================= */
+    /* =======================================================================
+       Footer
+       ======================================================================= */
     footer {
       background: #003366;
       padding: 20px 0;
@@ -482,7 +564,7 @@
             </tr>
           </thead>
           <tbody id="attendanceTable">
-            <!-- Attendance rows will be added here dynamically -->
+            <!-- Attendance rows will be added dynamically -->
           </tbody>
         </table>
         <button onclick="recordAttendance()">Record Attendance</button>
@@ -502,6 +584,8 @@
             <option value="unmc">Unmoderated Caucus (UNMC)</option>
             <option value="other">Other</option>
           </select>
+          <label for="submittingCountry">Submitting Country:</label>
+          <input type="text" id="submittingCountry" placeholder="Country" required>
           <button type="submit">Call Motion</button>
         </form>
         <ul class="motion-list" id="motionList">
@@ -542,6 +626,7 @@
         <h2>Speaker Queue</h2>
         <form id="speakerForm">
           <input type="text" id="speakerName" placeholder="Speaker Name" required>
+          <input type="number" id="fractionalTime" placeholder="Time (fractional minutes)" step="0.1" required>
           <button type="submit">Add Speaker</button>
         </form>
         <div class="speaker-list">
@@ -568,16 +653,17 @@
         <form id="caucusForm">
           <input type="text" id="caucusTopic" placeholder="Caucus Topic" required>
           <input type="number" id="caucusDuration" placeholder="Duration (minutes)" required min="1">
+          <input type="text" id="caucusSubmittingCountry" placeholder="Submitting Country" required>
           <button type="submit">Start Caucus</button>
         </form>
         <div class="caucus-timer-display" id="caucusTimerDisplay">00:00</div>
         <div class="caucus-buttons">
-          <button onclick="startCaucusSpeaking()">Start Speaking</button>
-          <button onclick="stopCaucusSpeaking()">Stop Speaking</button>
+          <button onclick="startCaucusTimer()">Start Caucus Timer</button>
+          <button onclick="stopCaucusTimer()">Pause Caucus Timer</button>
           <button onclick="resetCaucusTimer()">Reset Caucus Timer</button>
         </div>
-        <div class="caucus-delegate-list" id="caucusDelegateList">
-          <h3>Caucus Delegates</h3>
+        <div class="caucus-delegate-list">
+          <h3>Caucus Delegate List</h3>
           <table id="caucusTable">
             <thead>
               <tr>
@@ -599,7 +685,7 @@
       <div class="command-log-panel">
         <h2>Command Log</h2>
         <div class="command-log" id="commandLog">
-          <!-- Command log entries will appear here -->
+          <!-- Logged commands will appear here -->
         </div>
       </div>
     </div>
@@ -721,23 +807,25 @@
       const title = document.getElementById('motionTitle').value.trim();
       const description = document.getElementById('motionDescription').value.trim();
       const type = document.getElementById('motionType').value;
-      if (title === "" || description === "") return;
-      addMotion(title, description, type);
+      const submittingCountry = document.getElementById('submittingCountry').value.trim();
+      if (title === "" || description === "" || submittingCountry === "") return;
+      addMotion(title, description, type, submittingCountry);
       motionForm.reset();
     });
-    function addMotion(title, description, type) {
+    function addMotion(title, description, type, country) {
       const motionItem = document.createElement('li');
       const motionHeader = document.createElement('h3');
       motionHeader.textContent = title;
       const motionDesc = document.createElement('p');
       motionDesc.textContent = description;
+      // Create vote buttons for "For" and "Against"
       const voteForButton = document.createElement('button');
       voteForButton.textContent = "For (0)";
       let voteForCount = 0;
       voteForButton.onclick = function() {
         voteForCount++;
         voteForButton.textContent = "For (" + voteForCount + ")";
-        logCommand(`Motion '${title}' (${type}) - Vote For: ${voteForCount}`);
+        logCommand(`Motion '${title}' [${type}] from ${country} - Vote For: ${voteForCount}`);
       };
       const voteAgainstButton = document.createElement('button');
       voteAgainstButton.textContent = "Against (0)";
@@ -745,14 +833,14 @@
       voteAgainstButton.onclick = function() {
         voteAgainstCount++;
         voteAgainstButton.textContent = "Against (" + voteAgainstCount + ")";
-        logCommand(`Motion '${title}' (${type}) - Vote Against: ${voteAgainstCount}`);
+        logCommand(`Motion '${title}' [${type}] from ${country} - Vote Against: ${voteAgainstCount}`);
       };
       motionItem.appendChild(motionHeader);
       motionItem.appendChild(motionDesc);
       motionItem.appendChild(voteForButton);
       motionItem.appendChild(voteAgainstButton);
       motionList.appendChild(motionItem);
-      logCommand(`Motion Called: ${title} (${type})`);
+      logCommand(`Motion Called: '${title}' [${type}] from ${country}`);
     }
     
     /**************** Delegate Management Functionality ****************/
@@ -794,17 +882,19 @@
     speakerForm.addEventListener('submit', function(e) {
       e.preventDefault();
       const speakerName = document.getElementById('speakerName').value.trim();
-      if (speakerName === "") return;
-      addSpeaker(speakerName);
+      const fractionalTime = parseFloat(document.getElementById('fractionalTime').value);
+      if (speakerName === "" || isNaN(fractionalTime)) return;
+      addSpeaker(speakerName, fractionalTime);
       document.getElementById('speakerName').value = "";
+      document.getElementById('fractionalTime').value = "";
     });
-    function addSpeaker(name) {
+    function addSpeaker(name, baseTime) {
       const row = document.createElement('tr');
       const nameCell = document.createElement('td');
       const timeCell = document.createElement('td');
       const actionCell = document.createElement('td');
       nameCell.textContent = name;
-      let speakingTime = 0;
+      let speakingTime = baseTime * 60; // Convert fractional minutes to seconds
       timeCell.textContent = formatTime(speakingTime);
       const startButton = document.createElement('button');
       startButton.textContent = "Start";
@@ -819,13 +909,13 @@
           speakingTime++;
           timeCell.textContent = formatTime(speakingTime);
         }, 1000);
-        logCommand(`Speaker ${name} started speaking`);
+        logCommand(`Speaker '${name}' started speaking`);
       };
       stopButton.onclick = function() {
         clearInterval(speakerTimer);
         startButton.disabled = false;
         stopButton.disabled = true;
-        logCommand(`Speaker ${name} stopped speaking at ${formatTime(speakingTime)}`);
+        logCommand(`Speaker '${name}' stopped at ${formatTime(speakingTime)}`);
       };
       actionCell.appendChild(startButton);
       actionCell.appendChild(stopButton);
@@ -833,11 +923,11 @@
       row.appendChild(timeCell);
       row.appendChild(actionCell);
       speakerTableBody.appendChild(row);
-      logCommand(`Added Speaker: ${name}`);
+      logCommand(`Added Speaker: ${name} with base time ${baseTime} minute(s)`);
     }
     function formatTime(seconds) {
       const mins = Math.floor(seconds / 60);
-      const secs = seconds % 60;
+      const secs = Math.floor(seconds % 60);
       return String(mins).padStart(2, '0') + ':' + String(secs).padStart(2, '0');
     }
     
@@ -866,7 +956,7 @@
         }
       }, 1000);
     }
-    function stopCaucusSpeaking() {
+    function stopCaucusTimer() {
       if (caucusTimerInterval !== null) {
         clearInterval(caucusTimerInterval);
         caucusTimerInterval = null;
@@ -874,7 +964,7 @@
       }
     }
     function resetCaucusTimer() {
-      stopCaucusSpeaking();
+      stopCaucusTimer();
       caucusRemaining = caucusDuration;
       updateCaucusDisplay();
       logCommand("Caucus Timer Reset");
@@ -884,18 +974,19 @@
       e.preventDefault();
       const topic = document.getElementById('caucusTopic').value.trim();
       const durationInput = document.getElementById('caucusDuration').value.trim();
-      if (topic === "" || durationInput === "") return;
+      const submittingCountry = document.getElementById('caucusSubmittingCountry').value.trim();
+      if (topic === "" || durationInput === "" || submittingCountry === "") return;
       caucusDuration = parseInt(durationInput, 10) * 60;
       caucusRemaining = caucusDuration;
       updateCaucusDisplay();
-      logCommand(`Caucus Started: "${topic}" for ${durationInput} minutes`);
+      logCommand(`Caucus Started: "${topic}" from ${submittingCountry} for ${durationInput} minute(s)`);
     });
     
-    /**************** Command Log Functionality (Already Defined Above) ****************/
-    // logCommand(message) already defined above
+    /**************** Command Log Functionality ****************/
+    // logCommand(message) is already defined above.
     
     /**************** Tab Navigation Initialization ****************/
-    // (Handled in the Tab Navigation block above)
+    // (Handled by the Tab Navigation code above)
   </script>
 </body>
 </html>

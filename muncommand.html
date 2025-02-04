@@ -6,23 +6,22 @@
   <title>MUN Command Center - Forest Hill Collegiate MUN</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-  <!-- Embedded CSS for testing (you can later move this to styles.css) -->
+  <!-- Embedded CSS (for testing; later move to styles.css) -->
   <style>
-    /* Global Reset */
+    /* ================= Global Reset and Base Styles ================= */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    /* Base Styles */
     body {
       font-family: 'Lato', sans-serif;
       background: #001f3f; /* Dark blue */
       color: #fff;
       overflow-x: hidden;
-      cursor: auto;
     }
-    /* Fixed Header */
+    
+    /* ================= Header and Navigation ================= */
     header {
       position: fixed;
       top: 0;
@@ -85,53 +84,130 @@
       background: #001f3f;
       color: #fff;
     }
-    /* Command Dashboard Container */
-    .command-dashboard {
+    
+    /* ================= Main Container ================= */
+    main {
+      margin-top: 70px; /* Account for fixed header */
+      padding: 20px;
       max-width: 1200px;
-      margin: 80px auto 50px;
-      padding: 20px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    /* Section styling for panels */
-    .section {
-      margin-bottom: 40px;
-      padding: 20px;
-      background: #003366;
-      border-radius: 8px;
-    }
-    .section h2 {
+    h1, h2, h3 {
       font-family: 'Montserrat', sans-serif;
+    }
+    
+    /* ================= Timer Panel ================= */
+    .timer-panel {
+      background: #003366;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .timer-panel h2 {
       margin-bottom: 20px;
     }
-    /* Command Panel Buttons */
-    .command-buttons button {
-      margin: 10px;
-      padding: 15px 25px;
+    .timer-display {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    .timer-buttons button {
+      margin: 5px;
+      padding: 10px 20px;
       background: #FFD700;
-      color: #001f3f;
       border: none;
+      color: #001f3f;
       border-radius: 5px;
       cursor: pointer;
-      font-size: 1em;
       transition: transform 0.3s ease;
     }
-    .command-buttons button:hover {
+    .timer-buttons button:hover {
       transform: scale(1.05);
     }
-    /* Timer Panel */
-    .timer-display {
-      font-size: 2em;
+    
+    /* ================= Delegate Management Panel ================= */
+    .delegate-panel {
+      background: #003366;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .delegate-panel h2 {
       text-align: center;
-      margin: 20px 0;
+      margin-bottom: 15px;
     }
-    /* Roll Call Panel */
-    .roll-call-list {
-      list-style: none;
-      padding: 0;
+    .delegate-panel form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 20px;
     }
-    .roll-call-list li {
-      margin: 5px 0;
+    .delegate-panel form input,
+    .delegate-panel form select {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      width: 200px;
     }
-    /* Command Log Panel */
+    .delegate-panel form button {
+      padding: 10px 20px;
+      background: #FFD700;
+      border: none;
+      color: #001f3f;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .delegate-panel form button:hover {
+      transform: scale(1.05);
+    }
+    .delegate-list {
+      width: 100%;
+      margin-top: 10px;
+    }
+    .delegate-list table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      color: #001f3f;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .delegate-list th, .delegate-list td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ccc;
+    }
+    .delegate-list th {
+      background: #FFD700;
+      color: #001f3f;
+    }
+    .delegate-list td button {
+      background: #FF4136;
+      border: none;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .delegate-list td button:hover {
+      transform: scale(1.05);
+    }
+    
+    /* ================= Command Log Panel ================= */
+    .command-log-panel {
+      background: #003366;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 30px;
+    }
+    .command-log-panel h2 {
+      text-align: center;
+      margin-bottom: 15px;
+    }
     .command-log {
       background: #f0f0f0;
       color: #001f3f;
@@ -141,15 +217,16 @@
       overflow-y: auto;
       font-family: monospace;
     }
-    /* Footer */
+    
+    /* ================= Footer ================= */
     footer {
       background: #003366;
       padding: 20px 0;
       text-align: center;
-      width: 100%;
       font-size: 0.9em;
       position: relative;
       bottom: 0;
+      width: 100%;
     }
     footer p {
       margin: 5px 0;
@@ -185,98 +262,165 @@
       </ul>
     </nav>
   </header>
-
-  <!-- MUN Command Dashboard -->
-  <main class="command-dashboard">
-    <!-- Commands Panel -->
-    <section class="section commands-panel">
-      <h2>Command Panel</h2>
-      <div class="command-buttons">
+  
+  <!-- Main Dashboard -->
+  <main>
+    <h1 style="text-align:center; margin-bottom:20px;">MUN Command Center</h1>
+    
+    <!-- Timer Panel (Limited Time Countdown) -->
+    <section class="timer-panel">
+      <h2>Session Timer</h2>
+      <div class="timer-display" id="timerDisplay">45:00</div>
+      <div class="timer-buttons">
+        <button onclick="startTimer()">Start Session</button>
+        <button onclick="stopTimer()">Pause Session</button>
+        <button onclick="resetTimer()">Reset Session</button>
+      </div>
+    </section>
+    
+    <!-- Delegate Management Panel -->
+    <section class="delegate-panel">
+      <h2>Delegate Management</h2>
+      <form id="delegateForm">
+        <input type="text" id="delegateName" placeholder="Delegate Name" required>
+        <input type="text" id="delegateCountry" placeholder="Country" required>
+        <button type="submit">Add Delegate</button>
+      </form>
+      <div class="delegate-list">
+        <table id="delegateTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Country</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Delegate rows will be appended here -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+    <!-- Command Panel -->
+    <section class="command-log-panel">
+      <h2>Command Log</h2>
+      <div class="command-log" id="commandLog">
+        <!-- Logged commands will appear here -->
+      </div>
+      <div class="command-buttons" style="text-align:center; margin-top:20px;">
         <button onclick="logCommand('Call for Speakers')">Call for Speakers</button>
         <button onclick="logCommand('Roll Call')">Roll Call</button>
         <button onclick="logCommand('Suspend Debate')">Suspend Debate</button>
         <button onclick="logCommand('Adjourn Committee')">Adjourn Committee</button>
       </div>
     </section>
-    
-    <!-- Timer Panel -->
-    <section class="section timer-panel">
-      <h2>Timer</h2>
-      <div class="timer-display" id="timerDisplay">00:00</div>
-      <div class="command-buttons">
-        <button onclick="startTimer()">Start Timer</button>
-        <button onclick="stopTimer()">Stop Timer</button>
-        <button onclick="resetTimer()">Reset Timer</button>
-      </div>
-    </section>
-    
-    <!-- Roll Call Panel -->
-    <section class="section roll-call-panel">
-      <h2>Roll Call</h2>
-      <ul class="roll-call-list" id="rollCallList">
-        <li><input type="checkbox" id="delegate1"> <label for="delegate1">Delegate 1</label></li>
-        <li><input type="checkbox" id="delegate2"> <label for="delegate2">Delegate 2</label></li>
-        <li><input type="checkbox" id="delegate3"> <label for="delegate3">Delegate 3</label></li>
-        <li><input type="checkbox" id="delegate4"> <label for="delegate4">Delegate 4</label></li>
-      </ul>
-    </section>
-    
-    <!-- Command Log Panel -->
-    <section class="section command-log-panel">
-      <h2>Command Log</h2>
-      <div class="command-log" id="commandLog">
-        <!-- Logged commands will appear here -->
-      </div>
-    </section>
   </main>
-
+  
   <!-- Footer -->
   <footer>
     <p>Follow us on Instagram: <a href="https://instagram.com/fhcimun" target="_blank">@fhcimun</a></p>
     <p>&copy; 2025 Forest Hill Collegiate Institute Model UN</p>
   </footer>
-
-  <!-- Consolidated JavaScript for MUN Command functionality -->
+  
+  <!-- Consolidated JavaScript for Advanced MUN Command Center -->
   <script>
-    // Command Logging Functionality
-    function logCommand(command) {
+    /**************** Command Log Functionality ****************/
+    function logCommand(message) {
       const logDiv = document.getElementById('commandLog');
       const timeStamp = new Date().toLocaleTimeString();
       const entry = document.createElement('p');
-      entry.textContent = `[${timeStamp}] ${command}`;
+      entry.textContent = `[${timeStamp}] ${message}`;
       logDiv.appendChild(entry);
       logDiv.scrollTop = logDiv.scrollHeight;
     }
-
-    // Timer Functionality
+    
+    /**************** Timer Functionality (Countdown) ****************/
     let timerInterval = null;
-    let totalSeconds = 0;
+    let sessionDuration = 2700; // 45 minutes in seconds
+    let remainingSeconds = sessionDuration;
+    
     function updateTimerDisplay() {
-      const minutes = Math.floor(totalSeconds / 60);
-      const seconds = totalSeconds % 60;
-      document.getElementById('timerDisplay').textContent = 
+      const minutes = Math.floor(remainingSeconds / 60);
+      const seconds = remainingSeconds % 60;
+      document.getElementById('timerDisplay').textContent =
         String(minutes).padStart(2, '0') + ':' + String(seconds).padStart(2, '0');
     }
+    
     function startTimer() {
-      if (timerInterval) return; // Timer already running
+      if (timerInterval !== null) return;
+      logCommand("Session Started");
       timerInterval = setInterval(() => {
-        totalSeconds++;
-        updateTimerDisplay();
+        if (remainingSeconds > 0) {
+          remainingSeconds--;
+          updateTimerDisplay();
+        } else {
+          clearInterval(timerInterval);
+          timerInterval = null;
+          logCommand("Session Ended");
+          alert("Session Time is up!");
+        }
       }, 1000);
-      logCommand("Timer Started");
     }
+    
     function stopTimer() {
-      if (timerInterval) {
+      if (timerInterval !== null) {
         clearInterval(timerInterval);
         timerInterval = null;
-        logCommand("Timer Stopped");
+        logCommand("Session Paused");
       }
     }
+    
     function resetTimer() {
-      totalSeconds = 0;
+      stopTimer();
+      remainingSeconds = sessionDuration;
       updateTimerDisplay();
-      logCommand("Timer Reset");
+      logCommand("Session Reset");
     }
+    
+    updateTimerDisplay(); // Initialize the timer display
+    
+    /**************** Delegate Management Functionality ****************/
+    const delegateForm = document.getElementById('delegateForm');
+    const delegateTableBody = document.querySelector('#delegateTable tbody');
+    
+    delegateForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('delegateName').value.trim();
+      const country = document.getElementById('delegateCountry').value.trim();
+      if (name === "" || country === "") return;
+      addDelegate(name, country);
+      document.getElementById('delegateName').value = "";
+      document.getElementById('delegateCountry').value = "";
+    });
+    
+    function addDelegate(name, country) {
+      const row = document.createElement('tr');
+      const nameCell = document.createElement('td');
+      const countryCell = document.createElement('td');
+      const actionCell = document.createElement('td');
+      
+      nameCell.textContent = name;
+      countryCell.textContent = country;
+      
+      const delButton = document.createElement('button');
+      delButton.textContent = "Delete";
+      delButton.onclick = function() {
+        delegateTableBody.removeChild(row);
+        logCommand(`Removed Delegate: ${name} (${country})`);
+      };
+      actionCell.appendChild(delButton);
+      
+      row.appendChild(nameCell);
+      row.appendChild(countryCell);
+      row.appendChild(actionCell);
+      delegateTableBody.appendChild(row);
+      
+      logCommand(`Added Delegate: ${name} (${country})`);
+    }
+    
+    /**************** Additional Command Functions (Optional) ****************/
+    // You can extend this section to include further interactive functionality.
   </script>
 </body>
 </html>

@@ -155,5 +155,62 @@
   });
 </script>
 
+<script>
+  // Variables to store the last known mouse coordinates.
+  let lastMouseX = window.innerWidth / 2;
+  let lastMouseY = window.innerHeight / 2;
+  let idleTimer = null;
+  let idleAnimation = null;
+  
+  // Get the falcon element (acting as our custom cursor)
+  const falconContainer = document.querySelector('.hero-animation');
+
+  // Function to start the idle orbit animation
+  function startIdleAnimation() {
+    let angle = 0;
+    const radius = 50; // Orbit radius (adjust as desired)
+    idleAnimation = setInterval(() => {
+      angle += 0.05; // Adjust rotation speed as needed
+      // Calculate the new position based on circular orbit around the last position
+      const newX = lastMouseX + radius * Math.cos(angle);
+      const newY = lastMouseY + radius * Math.sin(angle);
+      // Update the falcon container's position so that its center is at (newX, newY)
+      falconContainer.style.left = (newX - falconContainer.offsetWidth / 2) + 'px';
+      falconContainer.style.top = (newY - falconContainer.offsetHeight / 2) + 'px';
+    }, 16); // Approximately 60 frames per second
+  }
+  
+  // Function to stop the idle orbit animation
+  function stopIdleAnimation() {
+    if (idleAnimation) {
+      clearInterval(idleAnimation);
+      idleAnimation = null;
+    }
+  }
+  
+  // Listen for mouse movement
+  document.addEventListener('mousemove', function(e) {
+    // Update the last known mouse coordinates
+    lastMouseX = e.clientX;
+    lastMouseY = e.clientY;
+    
+    // Immediately move the falcon so its center is at the current cursor position
+    falconContainer.style.left = (e.clientX - falconContainer.offsetWidth / 2) + 'px';
+    falconContainer.style.top = (e.clientY - falconContainer.offsetHeight / 2) + 'px';
+    
+    // Stop any idle orbit animation if running
+    stopIdleAnimation();
+    
+    // Reset the idle timer (if the mouse doesn't move for 1.5 seconds, start orbiting)
+    if (idleTimer) {
+      clearTimeout(idleTimer);
+    }
+    idleTimer = setTimeout(() => {
+      startIdleAnimation();
+    }, 1500);
+  });
+</script>
+
+  
 </body>
 </html>
